@@ -1,0 +1,51 @@
+//
+// ------------------------------------------------------------------------
+// Shadows
+// ------------------------------------------------------------------------
+//
+
+$shadow-variants: map-get($map: return-utility-map("shadow"), $key: values);
+$svg-shadow-variants: map-get($map: return-utility-map("svg-shadow"), $key: values);
+
+[data-tor*="shadow("] {
+  --tor-shadow-inset: var(--tor-none, /*!*/);
+  --tor-shadow-color: #{red($black)}, #{green($black)}, #{blue($black)};
+  --tor-shadow-offsetX: 0rem;
+  --tor-shadow-offsetY: 0rem;
+  --tor-shadow-intensity: 1;
+}
+
+[data-tor*="shadow("] {
+  @each $key, $value in $shadow-variants {
+
+    @if $key == null {
+      $key: md;
+    }
+
+    --tor-shadow-#{$key}: #{$value};
+  }
+}
+
+//
+// ------------------------------------------------------------------------
+// Shadow offset
+// ------------------------------------------------------------------------
+//
+
+[data-tor*="shadow-offset"] {
+  @each $name, $value in $shadow-offset {
+    --tor-shadow-offset-#{$name}: #{$value};
+  }
+}
+
+//
+// ------------------------------------------------------------------------
+// Shadow intensity
+// ------------------------------------------------------------------------
+//
+
+[data-tor*="shadow-intensity("] {
+  @each $name, $value in $shadow-intensity {
+    --tor-shadow-intensity-#{$name}: #{$value};
+  }
+}

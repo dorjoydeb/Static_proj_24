@@ -1,0 +1,25 @@
+.modal {
+  .modal-dialog {
+    &[data-tor-position] {
+      --add-shift-y: 0%;
+
+      position: absolute;
+      width: inherit;
+      margin: $modal-custom-position-margin;
+    }
+
+    &[data-tor-position~="center"],
+    &[data-tor-position~="middle"] {
+      --add-shift-y: #{$modal-shift-y};
+    }
+  }
+
+  &.show {
+    .modal-dialog {
+      &[data-tor-position~="center"],
+      &[data-tor-position~="middle"] {
+        --add-shift-y: 0px;
+      }
+    }
+  }
+}

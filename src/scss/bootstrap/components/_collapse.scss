@@ -1,0 +1,60 @@
+[class*="collapse-indicator"] {
+  display: flex;
+
+  &:after {
+    background-color: $collapse-indicator-color;
+    content: "";
+    mask-size: cover;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    margin-left: auto;
+    align-self: center;
+    position: relative;
+
+    // Prevent animation from running on page loaded
+    animation-duration: 0s;
+    animation-fill-mode: forwards;
+    animation-timing-function: $transition-timing-quartic;
+  }
+}
+
+//
+// Set animation-duration back from 0s
+//
+
+[class*="collapse-indicator"][aria-expanded="true"],
+[class*="collapse-indicator"].collapsed {
+  &:after {
+    animation-duration: $collapse-indicator-transition-duration;
+  }
+}
+
+[class*="collapse-indicator"][aria-expanded="false"] {
+  &:after {
+    animation-name: a_collapse-icon-is-collapsed;
+  }
+}
+[class*="collapse-indicator"][aria-expanded="true"] {
+  &:after {
+    animation-name: a_collapse-icon-is-expanded;
+  }
+}
+
+//
+// Indicator icons
+//
+
+.collapse-indicator-plus {
+  &:after {
+    --collapse-icon-collapsed: #{$collapse-indicator-icon-plus-collapsed};
+    --collapse-icon-expanded: #{$collapse-indicator-icon-plus-expanded};
+  }
+}
+
+.collapse-indicator-chevron {
+  &:after {
+    --collapse-icon-collapsed: #{$collapse-indicator-icon-chevron-collapsed};
+    --collapse-icon-expanded: #{$collapse-indicator-icon-chevron-expanded};
+  }
+}

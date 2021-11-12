@@ -1,0 +1,66 @@
+//
+// ------------------------------------------------------------------------
+// Mask
+// ------------------------------------------------------------------------
+//
+
+[data-tor*=":mask("] {
+  clip-path: polygon(var(--tor-mask));
+  contain: paint;
+  backface-visibility: hidden;
+  will-change: clip-path;
+
+  @-moz-document url-prefix() {
+    filter: drop-shadow($shadow-transparent);
+  }
+}
+
+[data-tor*=":mask(circle"] {
+  clip-path: circle(var(--tor-mask));
+}
+
+//
+// ------------------------------------------------------------------------
+// CSS variables
+// ------------------------------------------------------------------------
+//
+
+[data-tor*=":mask("] {
+  --tor-mask-skew: 0rem;
+
+  // Active
+
+  --tor-mask-left: calc(0% - var(--tor-mask-skew)) 0%, 100% 0%, 100% 100%, 0% 100%;
+  --tor-mask-right: 0% 0%, calc(100% + var(--tor-mask-skew)) 0%, 100% 100%, 0% 100%;
+  --tor-mask-up: 0% 0%, 100% calc(0% - var(--tor-mask-skew)), 100% 100%, 0% 100%;
+  --tor-mask-down: 0% 0%, 100% 0%, 100% calc(100% + var(--tor-mask-skew)), 0% 100%;
+  --tor-mask-circle: 100%;
+}
+
+//
+// ------------------------------------------------------------------------
+// Inactive
+// ------------------------------------------------------------------------
+//
+
+[data-tor*=":mask(left"] {
+  --tor-mask-a: var(--tor-mask-left);
+  --tor-mask: 100% 0%, 100% 0%, 100% 100%, calc(100% + var(--tor-mask-skew)) 100%;
+}
+[data-tor*=":mask(right"] {
+  --tor-mask-a: var(--tor-mask-right);
+  --tor-mask: 0% 0%, 0% 0%, calc(0% - var(--tor-mask-skew)) 100%, 0% 100%;
+}
+[data-tor*=":mask(up"] {
+  --tor-mask-a: var(--tor-mask-up);
+  --tor-mask: 0% calc(100% + var(--tor-mask-skew)), 100% 100%, 100% 100%, 0% 100%;
+}
+[data-tor*=":mask(down"] {
+  --tor-mask-a: var(--tor-mask-down);
+  --tor-mask: 0% 0%, 100% 0%, 100% 0%, 0% calc(0% - var(--tor-mask-skew));
+}
+
+[data-tor*=":mask(circle"] {
+  --tor-mask-a: var(--tor-mask-circle);
+  --tor-mask: 0%;
+}

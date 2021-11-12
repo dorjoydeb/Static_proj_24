@@ -1,0 +1,12 @@
+//
+// ------------------------------------------------------------------------
+// Text color
+// ------------------------------------------------------------------------
+//
+
+[data-tor*="text("] {
+  @each $name, $value in $text-colors-hsla {
+    --tor-text-#{$name}: #{$value};
+  }
+  --tor-text-transparent: transparent;
+}

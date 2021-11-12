@@ -1,0 +1,97 @@
+.dropdown-menu {
+
+  padding: $dropdown-padding-y $dropdown-padding-x;
+
+  &.fade {
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    pointer-events: none;
+    transition-property: opacity !important;
+
+    &:not(.show) {
+      transition: none;
+    }
+  }
+
+  &.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  &[data-tor-caret] {
+    &[data-popper-placement="bottom-start"] {
+      margin-top: $dropdown-spacer + $caret-size;
+    }
+
+    &[data-popper-placement="top-start"] {
+      margin-bottom: $dropdown-spacer + $caret-size;
+    }
+
+    &[data-popper-placement="right-start"] {
+      margin-left: $dropdown-spacer + ($caret-size / 2);
+    }
+
+    &[data-popper-placement="left-start"] {
+      margin-right: $dropdown-spacer + ($caret-size / 2);
+    }
+  }
+}
+
+.dropdown-item {
+  border-radius: $dropdown-item-border-radius;
+}
+
+//
+// Caret position tuning on split toggle buttons
+//
+
+.dropdown-toggle-split ~ .dropdown-menu[data-tor-caret] {
+  &[data-popper-placement="bottom-start"],
+  &[data-popper-placement="top-start"] {
+    &:after {
+      left: $btn-padding-x - ($caret-size / 2);
+    }
+  }
+
+  &[data-popper-placement="left-start"],
+  &[data-popper-placement="right-start"] {
+    &:after {
+      top: $input-btn-padding-x + $caret-size;
+    }
+  }
+}
+
+.btn-sm.dropdown-toggle-split ~ .dropdown-menu[data-tor-caret] {
+  &[data-popper-placement="bottom-start"],
+  &[data-popper-placement="top-start"] {
+    &:after {
+      left: $btn-padding-x-sm - ($caret-size / 2);
+    }
+  }
+
+  &[data-popper-placement="left-start"],
+  &[data-popper-placement="right-start"] {
+    &:after {
+      top: $input-btn-padding-x-sm + $caret-size;
+    }
+  }
+}
+
+.btn-lg.dropdown-toggle-split ~ .dropdown-menu.caret {
+  &[data-popper-placement="bottom-start"],
+  &[data-popper-placement="top-start"] {
+    &:after {
+      left: $btn-padding-x-lg - ($caret-size / 2);
+    }
+  }
+
+  &[data-popper-placement="left-start"],
+  &[data-popper-placement="right-start"] {
+    &:after {
+      top: $input-btn-padding-x-lg + $caret-size;
+    }
+  }
+}

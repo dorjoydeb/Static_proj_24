@@ -1,0 +1,19 @@
+---
+layout: subpage
+dark: false
+h1: My
+h1Typewriter: Works
+portfolioGallery: true
+---
+{%- import "required/macros.html" as macros with context -%}
+{% include "sections/portfolio.html" %}
+{% extends "sections/portfolio.html" %}
+{% block gallery %}
+<div class="row row-cosl-1 row-cols-md-2 g-4">
+  {% for item in ["wfh_2.svg", "wfh_3.svg", "wfh_4.svg", "wfh_5.svg", "wfh_6.svg"] %}
+  <div class="col">
+    <img class="img-fluid border border-dark border-opacity-5 portfolio-item bg-white" src="./assets/img/works/{{ item }}" alt="illustration">
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

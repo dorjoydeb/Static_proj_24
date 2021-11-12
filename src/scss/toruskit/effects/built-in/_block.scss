@@ -1,0 +1,102 @@
+//
+// ------------------------------------------------------------------------
+// Block
+// ------------------------------------------------------------------------
+//
+
+[data-tor*="block("] {
+  // --tor-clip-delay: calc(var(--tor-duration-all) + var(--tor-delay-all, 0ms));
+  // --tor-block-delay: var(--tor-delay-all, 0ms);
+  // --tor-block: inset(0% 0% 0% 0%);
+
+  --tor-block: inset(0% 0% 0% 0%);
+  --tor-block-scale: var(--tor-block-scale-idle);
+  --tor-clip-delay: var(--tor-delay-all, 0ms);
+  --tor-block-delay: calc(var(--tor-duration-all) + var(--tor-delay-all, 0ms));
+
+  clip-path: var(--tor-block);
+  contain: paint;
+  transform-style: preserve-3d;
+  will-change: clip-path, transform;
+  position: relative;
+  transition-delay: var(--tor-clip-delay) !important;
+  visibility: visible;
+
+  @-moz-document url-prefix() {
+    filter: drop-shadow($shadow-transparent);
+  }
+
+  &:before {
+    background-color: var(--tor-block-bg, $black);
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transform: var(--tor-block-scale);
+    transition-delay: var(--tor-block-delay);
+    transition-duration: var(--tor-duration-all);
+    transition-timing-function: inherit;
+    transform-origin: var(--tor-block-origin);
+    transition-property: transform;
+    z-index: 1;
+  }
+}
+
+//
+// ------------------------------------------------------------------------
+// Inactive
+// ------------------------------------------------------------------------
+//
+
+// Common
+
+[data-tor*=":block(right"],
+[data-tor*=":block(left"] {
+  --tor-block-scale: scaleX(0);
+  --tor-block-scale-idle: scaleX(1);
+}
+
+[data-tor*=":block(up"],
+[data-tor*=":block(down"] {
+  --tor-block-scale: scaleY(0);
+  --tor-block-scale-idle: scaleY(1);
+}
+
+// Different
+
+[data-tor*=":block(right"] {
+  --tor-block-origin: right;
+  --tor-block-idle: inset(0% 100% 0% 0%);
+}
+[data-tor*=":block(left"] {
+  --tor-block-origin: left;
+  --tor-block-idle: inset(0% 0% 0% 100%);
+}
+
+[data-tor*=":block(up"] {
+  --tor-block-origin: top;
+  --tor-block-idle: inset(100% 0% 0% 0%);
+}
+[data-tor*=":block(down"] {
+  --tor-block-origin: bottom;
+  --tor-block-idle: inset(0% 0% 100% 0%);
+}
+
+//
+// ------------------------------------------------------------------------
+// Active
+// ------------------------------------------------------------------------
+//
+
+// [data-tor*="inview:block("].inview,
+// [data-tor*="active:block("].active,
+// [data-tor*="show:block("].show,
+// [data-tor*="hover:block("]:hover {
+//   --tor-block-scale: var(--tor-block-scale-a);
+//   --tor-clip-delay: var(--tor-delay-all, 0ms);
+//   --tor-block-delay: calc(var(--tor-duration-all) + var(--tor-delay-all, 0ms));
+//   // clip-path: inset(0% 0% 0% 0%);
+//   // --tor-block: inset(0% 0% 0% 0%);
+// }

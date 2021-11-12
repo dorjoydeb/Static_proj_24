@@ -1,0 +1,61 @@
+.bg,
+.bg .bg-element {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.bg {
+  overflow: hidden;
+}
+
+.obj-fit-contain,
+.obj-fit-cover,
+.bg-img {
+  width: 100%;
+  height: 100%;
+}
+
+.obj-fit-cover,
+.bg-img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.obj-fit-contain {
+  object-fit: contain;
+  object-position: center;
+}
+
+.bg-img {
+  display: none;
+}
+
+.has-bg-img {
+  background-position: center;
+  background-size: cover;
+}
+
+.has-bg-pattern {
+  background-repeat: repeat;
+  background-size: auto;
+  background-position: top left;
+}
+
+//
+// Blend background color and background image together
+//
+
+.bg-blend-multiply {
+  background-blend-mode: multiply !important;
+}
+
+.bg-blend-overlay {
+  background-blend-mode: overlay !important;
+}
+
+.bg-blend-screen {
+  background-blend-mode: screen !important;
+}

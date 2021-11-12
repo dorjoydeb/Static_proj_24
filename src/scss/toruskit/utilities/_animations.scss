@@ -1,0 +1,129 @@
+//
+// ------------------------------------------------------------------------
+// Preloaders
+// ------------------------------------------------------------------------
+//
+
+//
+// Bar preloader
+//
+
+@keyframes a-progress-preloader-bar {
+  0% {
+    width: 0%;
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(1);
+  }
+  100% {
+    width: 100%;
+    transform: scaleX(0);
+  }
+}
+
+//
+// Fade preloader
+//
+
+@keyframes a-progress-preloader-fade {
+  0% {
+    opacity: 1;
+    transform: scaleX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scaleX(1);
+  }
+}
+
+//
+// ------------------------------------------------------------------------
+// Collapse icons
+// ------------------------------------------------------------------------
+//
+
+//
+// Expanded state
+//
+
+@keyframes a_collapse-icon-is-expanded {
+  0% {
+    transform: scale(1);
+    mask-image: var(--collapse-icon-collapsed);
+  }
+  49% {
+    transform: scale(0);
+    mask-image: var(--collapse-icon-collapsed);
+  }
+  50% {
+    transform: scale(0);
+    mask-image: var(--collapse-icon-expanded);
+  }
+  100% {
+    transform: scale(1);
+    mask-image: var(--collapse-icon-expanded);
+  }
+}
+
+//
+// Collapsed state
+//
+
+@keyframes a_collapse-icon-is-collapsed {
+  0% {
+    transform: scale(1);
+    mask-image: var(--collapse-icon-expanded);
+  }
+  49% {
+    transform: scale(0);
+    mask-image: var(--collapse-icon-expanded);
+  }
+  50% {
+    transform: scale(0);
+    mask-image: var(--collapse-icon-collapsed);
+  }
+  100% {
+    transform: scale(1);
+    mask-image: var(--collapse-icon-collapsed);
+  }
+}
+
+//
+// ------------------------------------------------------------------------
+// Carousel indicator progress
+// ------------------------------------------------------------------------
+//
+
+@keyframes a_carousel-indicator-progress {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+//
+// ------------------------------------------------------------------------
+// Animate height change
+// ------------------------------------------------------------------------
+//
+
+@keyframes a_animate-height--hide {
+  0% {
+    height: var(--element-height, auto);
+  }
+  100% {
+    height: 0px;
+  }
+}
+
+@keyframes a_animate-height--show {
+  0% {
+    height: 0px;
+  }
+  100% {
+    height: var(--element-height, auto);
+  }
+}

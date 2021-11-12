@@ -1,0 +1,76 @@
+$loop-variants: (
+  "blink": (
+    transform-end-value: 0
+  ),
+  "bg": (
+    transform-end-value: $secondary,
+    timing: linear,
+    direction: alternate,
+    duration: 2s,
+  ),
+  "fill": (
+    transform-end-value: $secondary,
+    timing: linear,
+    direction: alternate,
+    duration: 2s,
+  ),
+  "jump": (
+    transform-end-value: 0.5rem,
+    timing: cubic-bezier(.4,0,.4,1.5),
+    duration: 1500ms
+  ),
+  "circle": (
+    transform-end-value: 1rem,
+    timing: linear,
+    duration: 2000ms,
+  ),
+  "float": (
+    transform-end-value: -0.5rem,
+    direction: alternate,
+  ),
+  "glow": (
+    transform-end-value: .5rem,
+    duration: 2s,
+  ),
+  "pulse": (
+    transform-end-value: 1.1
+  ),
+  "spin": (
+    transform-end-value: 360deg,
+    timing: linear,
+    duration: 2000ms
+  ),
+  "swing": (
+    transform-end-value: 20deg,
+    duration: 500ms
+  ),
+  "radiate": (
+    transform-end-value: 0.75rem,
+  ),
+  "wobble\.v": (
+    transform-end-value: 1rem,
+    direction: alternate,
+    duration: 800ms,
+  ),
+  "wobble\.h": (
+    transform-end-value: 1rem,
+    direction: alternate,
+    duration: 800ms,
+  ),
+  "move\.right": (
+    timing: linear,
+    duration: 2000ms,
+  ),
+  "move\.left": (
+    timing: linear,
+    duration: 2000ms,
+  ),
+  "move\.up": (
+    timing: linear,
+    duration: 2000ms,
+  ),
+  "move\.down": (
+    timing: linear,
+    duration: 2000ms,
+  ),
+);

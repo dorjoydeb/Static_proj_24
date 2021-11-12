@@ -1,0 +1,215 @@
+//
+// ------------------------------------------------------------------------
+// Animation keyframes
+// ------------------------------------------------------------------------
+//
+
+@keyframes loop-blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: var(--tor-loop-blink-value);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes loop-circle {
+  0%{
+    transform: rotate(0deg) translateX( var(--tor-loop-circle-value) ) rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg) translateX( var(--tor-loop-circle-value) ) rotate(-360deg);
+  }
+}
+
+@keyframes loop-float {
+  0% {
+    transform: translateY(0rem);
+  }
+  100% {
+    transform: translateY(var(--tor-loop-float-value));
+  }
+}
+
+@keyframes loop-jump {
+  0% {
+    transform: translateY(0rem);
+  }
+  50% {
+    transform: translateY( calc(var(--tor-loop-jump-value) * -1) );
+  }
+  65% {
+    transform: translateY(0rem);
+  }
+  70% {
+    transform: translateY( calc( var(--tor-loop-jump-value)  * -0.2) );
+  }
+  90% {
+    transform: translateY(0rem);
+  }
+  100% {
+    transform: translateY(0rem);
+  }
+}
+
+@keyframes loop-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale( var(--tor-loop-pulse-value) );
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes loop-radiate {
+  0% {
+    box-shadow: 0 0 0 0rem var(--tor-loop-color-0);
+  }
+  100% {
+    box-shadow: 0 0 0 var(--tor-loop-radiate-value) var(--tor-loop-color-100);
+  }
+}
+
+@keyframes loop-spin {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(var(--tor-loop-spin-value));
+  }
+}
+
+@keyframes loop-swing {
+  0% {
+    transform: rotateZ(var(--tor-loop-swing-value));
+  }
+  50% {
+    transform: rotateZ( calc( var(--tor-loop-swing-value) * (-1) ) );
+  }
+  100% {
+    transform: rotateZ(var(--tor-loop-swing-value));
+  }
+}
+
+@keyframes loop-wobble-h {
+  0% {
+    transform: translateX(calc( var(--tor-loop-wobble-h-value) * 0.5 ));
+  }
+  100% {
+    transform: translateX(calc( var(--tor-loop-wobble-h-value) * -0.5 ));
+  }
+}
+
+@keyframes loop-wobble-v {
+  0% {
+    transform: translateY(calc( var(--tor-loop-wobble-v-value) * 0.5 ));
+  }
+  100% {
+    transform: translateY(calc( var(--tor-loop-wobble-v-value) * -0.5 ));
+  }
+}
+
+@keyframes loop-move-right {
+  0% {
+    left: 0%;
+    transform: translateX(-100%);
+  }
+  // Safari flicker hack
+  99% {
+    visibility: hidden;
+    left: 100%;
+    transform: translateX(0%);
+  }
+  100% {
+    visibility: hidden;
+    left: 100%;
+    transform: translateX(0%);
+  }
+}
+
+@keyframes loop-move-left {
+  0% {
+    right: 0%;
+    transform: translateX(100%);
+  }
+  99% {
+    visibility: hidden;
+    right: 100%;
+    transform: translateX(0%);
+  }
+  100% {
+    visibility: hidden;
+    right: 100%;
+    transform: translateX(0%);
+  }
+}
+
+@keyframes loop-move-down {
+  0% {
+    top: 0%;
+    transform: translateY(-100%);
+  }
+  99% {
+    visibility: hidden;
+    top: 100%;
+    transform: translateY(0%);
+  }
+  100% {
+    visibility: hidden;
+    top: 0%;
+    transform: translateY(0%);
+  }
+}
+
+@keyframes loop-move-up {
+  0% {
+    bottom: 0%;
+    transform: translateY(100%);
+  }
+  99% {
+    visibility: hidden;
+    bottom: 100%;
+    transform: translateY(0%);
+  }
+  100% {
+    visibility: hidden;
+    bottom: 100%;
+    transform: translateY(0%);
+  }
+}
+
+@keyframes loop-glow {
+  0%{
+    filter: drop-shadow(0rem 0rem 0rem var(--tor-loop-glow-color, $primary));
+  }
+  50%{
+    filter: drop-shadow(0rem 0rem var(--tor-loop-glow-value) var(--tor-loop-glow-color, $primary));
+  }
+  100%{
+    filter: drop-shadow(0rem 0rem 0rem var(--tor-loop-glow-color, $primary));
+  }
+}
+
+@keyframes loop-bg {
+  0%{
+    background-color: var(--tor-loop-bg-start);
+  }
+  100%{
+    background-color: var(--tor-loop-bg-end);
+  }
+}
+
+@keyframes loop-fill {
+  0%{
+    fill: var(--tor-loop-fill-start);
+  }
+  100%{
+    fill: var(--tor-loop-fill-end);
+  }
+}

@@ -1,0 +1,318 @@
+[data-tor] {
+  --tor-wait: 0ms;
+  --tor-delay: 0ms;
+  --tor-duration: #{$transition-duration};
+  --tor-speed: 1;
+  --tor-timing: #{$transition-timing};
+
+  --tor-duration-all: calc( var(--tor-duration, #{$transition-duration}) * var(--tor-speed) );
+  --tor-timing-all: var(--tor-timing);
+  --tor-delay-all: calc( var(--tor-wait, 0ms) + var(--tor-delay, 0ms) );
+  --tor-property-all: all;
+
+  --tor-originX: center;
+  --tor-originY: center;
+  --tor-originZ: 0px;
+
+  transition-property: var(--tor-property-all);
+  transition-timing-function: var(--tor-timing-all);
+  transition-duration: var(--tor-duration-all);
+  transition-delay: var(--tor-delay-all);
+
+  transform-origin: var(--tor-originX) var(--tor-originY) var(--tor-originZ);
+}
+
+[data-tor*="z-level"],
+[data-tor*="push."],
+[data-tor*="pull."],
+[data-tor*="translate"],
+[data-tor*="rotate"],
+[data-tor*="scale"],
+[data-tor*="skew"],
+[data-tor*="reveal"] {
+  --tor-scaleX: initial;
+  --tor-scaleY: initial;
+
+  --tor-skewX: initial;
+  --tor-skewY: initial;
+
+  --tor-rotate: initial;
+  --tor-rotateX: initial;
+  --tor-rotateY: initial;
+
+  --tor-translateX: initial;
+  --tor-translateY: initial;
+  --tor-translateZ: initial;
+  --tor-moveX: initial;
+  --tor-moveY: initial;
+  --tor-z-level: initial;
+  --tor-perspective-self: initial;
+
+  transform:
+    perspective(
+      var(--tor-perspective-self, 0px)
+    )
+
+    scale3d(
+      var(--tor-scaleX, var(--tor-scale, 1)),
+      var(--tor-scaleY, var(--tor-scale, 1)),
+      1
+    )
+
+    translate3d(
+      calc( var(--tor-translateX, 0%) + var(--tor-moveX, 0%) ),
+      calc( var(--tor-translateY, 0%) + var(--tor-moveY, 0%) ),
+      calc( var(--tor-translateZ, 0px) + var(--tor-z-level, 0px) + var(--moz-opacity-fix, 0px) )
+    )
+
+    rotateX(
+      var(--tor-rotateX, 0deg)
+    )
+    rotateY(
+      var(--tor-rotateY, 0deg)
+    )
+    rotateZ(
+      var(--tor-rotate, 0deg)
+    )
+
+    skew(
+      var(--tor-skewX, var(--tor-skew, 0deg)),
+      var(--tor-skewY, var(--tor-skewY, 0deg))
+    )
+  ;
+}
+
+// [data-tor]:hover,
+// [data-tor].active,
+// [data-tor].show,
+// [data-tor].inview {
+//   will-change: transform, opacity;
+// }
+
+[data-tor*="scroll:"],
+[data-tor*="mouse:"],
+[data-tor*="mouseX:"],
+[data-tor*="mouseY:"],
+[data-tor*="sensor:"],
+[data-tor*="sensorX:"],
+[data-tor*="sensorY:"] {
+  transition: none;
+  // transition-timing-function: none;
+  // transition-duration: 0ms;
+  // --tor-timing: unset;
+  // --tor-duration: 0ms;
+  // --tor-speed: 0;
+}
+
+//
+// ------------------------------------------------------------------------
+// Transform origin
+// ------------------------------------------------------------------------
+//
+
+[data-tor~="origin.left"] {
+  --tor-originX: left;
+}
+[data-tor~="origin.right"] {
+  --tor-originX: right;
+}
+[data-tor~="origin.top"] {
+  --tor-originY: top;
+}
+[data-tor~="origin.bottom"] {
+  --tor-originY: bottom;
+}
+
+//
+// ------------------------------------------------------------------------
+// SVG
+// ------------------------------------------------------------------------
+//
+
+svg [data-tor] {
+  transform-box: fill-box;
+}
+
+//
+// ------------------------------------------------------------------------
+// Ghost element
+// ------------------------------------------------------------------------
+//
+
+[data-tor*=":rotate."],
+[data-tor*=":pull."],
+[data-tor*=":push."] {
+  > .tor-hit-area {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateX(calc(var(--tor-translateX, 0%) * -1)) translateY(calc(var(--tor-translateY, 0%) * -1));
+    transition: inherit;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  &:hover {
+    > .tor-hit-area {
+      transition: inherit;
+      pointer-events: auto;
+    }
+  }
+}
+
+[data-tor*=":push."],
+[data-tor*=":pull."] {
+  &:hover {
+    > .tor-hit-area {
+      height: calc(var(--tor-translateY, 100%) * var(--tor-hitY-calc, 1) + 100%);
+      width: calc(var(--tor-translateX, 100%) * var(--tor-hitX-calc, 1) + 100%);
+    }
+  }
+}
+
+[data-tor*=":push.up"],
+[data-tor*=":pull.up"] {
+  > .tor-hit-area {
+    bottom: 0;
+    --tor-hitY-calc: -1;
+  }
+}
+
+[data-tor*=":push.down"],
+[data-tor*=":pull.down"] {
+  > .tor-hit-area {
+    top: 0;
+  }
+}
+
+[data-tor*=":push.left"],
+[data-tor*=":pull.left"] {
+  > .tor-hit-area {
+    left: initial;
+    right: 0;
+    --tor-hitX-calc: -1;
+  }
+}
+
+//
+// ------------------------------------------------------------------------
+// Helpers
+// ------------------------------------------------------------------------
+//
+
+//
+// Remove default transition. You can than override it with `data-tor` transition type
+//
+
+.transition-unset {
+  transition: unset !important;
+}
+
+.tor-hidden {
+  visibility: hidden !important;
+}
+
+//
+// Disable transition for .inview elements
+//
+
+[data-tor-parent~="inview"]:not(.inview) [data-tor*="inview("],
+[data-tor*="inview:"]:not(.inview) {
+  transition: none !important;
+}
+
+//
+// Make <span> `inline-block` so transforms can apply
+//
+
+span[data-tor] {
+  display: inline-block;
+}
+
+//
+// Parent perspective
+//
+
+.perspective {
+  perspective: 1000px;
+
+  [data-fx] {
+    --perspective-c: 0;
+  }
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+//
+// Backface visibility
+//
+
+[data-fx~="backface-hidden"],
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+//
+// Disable transform
+//
+
+.no-transform,
+[data-fx~="no-transform"] {
+  transform: none !important;
+}
+
+//
+// Disable transition
+//
+
+.tr-none {
+  transition: none !important;
+}
+
+//
+// ------------------------------------------------------------------------
+// Hacks
+// ------------------------------------------------------------------------
+//
+
+//
+// Firefox smooth edge fixes
+//
+
+@-moz-document url-prefix() {
+  [data-tor*="@transform"],
+  [data-tor*="reveal"],
+  [data-tor*="rotate"],
+  [data-tor*="rotate"] .tor-flip-front,
+  [data-tor*="rotate"] .tor-flip-back {
+    outline: 1px solid transparent;
+  }
+
+  [data-tor*="scale"],
+  [data-tor*="pull"],
+  [data-tor*="push"] {
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+  }
+
+  img[data-tor*="scale"],
+  img[data-tor*="pull"],
+  img[data-tor*="push"] {
+    rotate: 0deg;
+    image-rendering: optimizeQuality;
+  }
+
+  svg[data-tor] {
+    outline: none;
+    rotate: 0;
+  }
+
+  svg [data-tor] {
+    rotate: 0.02deg;
+    will-change: transform;
+  }
+}

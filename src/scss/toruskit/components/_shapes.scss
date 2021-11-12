@@ -1,0 +1,31 @@
+.circle,
+.square {
+  align-items: center;
+  background-position: center;
+  background-size: cover;
+  display: inline-flex;
+  justify-content: center;
+  overflow: hidden;
+  padding: 50%;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+
+  > * {
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    max-width: 100%;
+  }
+}
+
+.circle {
+  border-radius: $border-radius-circle !important;
+}
+
+@each $size, $value in $shape-size {
+  .circle-#{$size},
+  .square-#{$size} {
+    padding: #{$value}rem;
+  }
+}

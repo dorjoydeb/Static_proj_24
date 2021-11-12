@@ -1,0 +1,227 @@
+//
+// ------------------------------------------------------------------------
+// Corner Ribbons
+// ------------------------------------------------------------------------
+//
+
+.ribbon-corner,
+.ribbon-bookmark-v,
+.ribbon-bookmark-h {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+
+  // Prevent Firefox from showing a piece of background around the clip-path
+
+  @-moz-document url-prefix() {
+    outline: 1px solid transparent;
+  }
+}
+
+.ribbon-corner {
+  background-color: $ribbon-bg-color;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  right: 0;
+  clip-path: var(--tor-ribbon-polygon);
+  transform: rotate(var(--tor-ribbon-rotate)) translateY(var(--tor-ribbon-translateY)) translateX(var(--tor-ribbon-translateX));
+  transform-origin: var(--tor-ribbon-origin);
+  width: calc( (var(--tor-ribbon-size) + 1em) * 2);
+  height: #{$ribbon-thickness};
+}
+
+.ribbon-corner {
+  --tor-ribbon-size: 3em;
+  --tor-ribbon-rotate: 45deg;
+  --tor-ribbon-translateX: 50%;
+  --tor-ribbon-translateY: calc((var(--tor-ribbon-size) + 1em) - 100%);
+  --tor-ribbon-origin: 100% 0%;
+  --tor-ribbon-polygon: polygon(0% 100%, 50% calc(100% - (var(--tor-ribbon-size) + 1em)), 100% 100%);
+
+  &[data-tor-position~="left"][data-tor-position~="top"] {
+    --tor-ribbon-rotate: -45deg;
+    --tor-ribbon-translateX: -50%;
+    --tor-ribbon-origin: 0% 0%;
+  }
+  &[data-tor-position~="left"][data-tor-position~="bottom"] {
+    --tor-ribbon-translateX: -50%;
+    --tor-ribbon-translateY: calc(0% - var(--tor-ribbon-size) + 1em);
+    --tor-ribbon-origin: 0% 100%;
+    --tor-ribbon-polygon: polygon(0% 0%, 50% calc(100% + (var(--tor-ribbon-size) - 1em)), 100% 0%);
+  }
+  &[data-tor-position~="right"][data-tor-position~="bottom"] {
+    --tor-ribbon-rotate: -45deg;
+    --tor-ribbon-translateY: calc(0% - var(--tor-ribbon-size) + 1em);
+    --tor-ribbon-origin: 100% 100%;
+    --tor-ribbon-polygon: polygon(0% 0%, 50% calc(100% + (var(--tor-ribbon-size) - 1em)), 100% 0%);
+  }
+}
+
+.ribbon-corner.ribbon-fold {
+  --tor-ribbon-polygon: polygon(0% 100%, 50% calc(100% - (var(--tor-ribbon-size) + 1em)), 100% 100%, 100% calc(100% + #{$ribbon-fold-size}), 0% calc(100% + #{$ribbon-fold-size}));
+  margin: -$ribbon-fold-size + 0.16;
+
+  &:before {
+    --tor-ribbon-fold-polygon: polygon(0% -10px, 100% -10px, 100% 100%, calc(100% - #{$ribbon-fold-size} - 10px) -10px, calc(#{$ribbon-fold-size} + 10px) -10px, 0% 100%);
+    background-color: inherit;
+    filter: brightness($ribbon-fold-brightness);
+    clip-path: var(--tor-ribbon-fold-polygon);
+    content: "";
+    position: absolute;
+    bottom: calc(-#{$ribbon-fold-size} + 1px);
+    left: 0;
+    width: 100%;
+    height: #{$ribbon-fold-size};
+    z-index: -1;
+  }
+
+  &[data-tor-position~="bottom"] {
+    --tor-ribbon-polygon: polygon(0% -#{$ribbon-fold-size}, 100% -#{$ribbon-fold-size}, 100% 0%, 50% calc(100% + (var(--tor-ribbon-size) - 1em)), 0% 0%);
+
+    &:before {
+      bottom: auto;
+      top: -#{$ribbon-fold-size};
+      transform: rotate(180deg);
+    }
+  }
+}
+
+//
+// ------------------------------------------------------------------------
+// Bookmark Ribbons
+// ------------------------------------------------------------------------
+//
+
+.ribbon-bookmark-v,
+.ribbon-bookmark-h {
+  --tor-ribbon-size: #{$ribbon-size};
+
+  color: $ribbon-color;
+  background-color: $ribbon-bg-color;
+  position: absolute;
+  right: 0;
+  top: 0;
+  flex-direction: column;
+  transform-style: preserve-3d;
+  z-index: 1;
+
+  //
+  // Fold
+  //
+
+  &.ribbon-fold {
+    &:before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      background-color: inherit;
+      filter: brightness($ribbon-fold-brightness);
+      padding: $ribbon-fold-size/2;
+    }
+  }
+}
+
+//
+// Vertical bookmark ribbon
+//
+
+
+.ribbon-bookmark-v {
+  --tor-ribbon-polygon: polygon(0% 0%, 100% 0%, 100% 100%, #{$ribbon-thickness/2} calc(100% - #{$ribbon-thickness/2}), 0% 100%);
+  clip-path: var(--tor-ribbon-polygon);
+  margin-right: $ribbon-bookmark-margin;
+  margin-left: $ribbon-bookmark-margin;
+  width: $ribbon-thickness;
+  height: calc(var(--tor-ribbon-size) + #{$ribbon-thickness/2});
+  padding-bottom: #{$ribbon-thickness/2};
+}
+
+// Fold
+
+.ribbon-bookmark-v.ribbon-fold {
+  --tor-ribbon-polygon: polygon(0% calc(0% + #{$ribbon-fold-size}), -#{$ribbon-fold-size} #{$ribbon-fold-size}, 0% 0%, 100% 0%, 100% 100%, #{$ribbon-thickness/2} calc(100% - #{$ribbon-thickness/2}), 0% 100%);
+  margin-top: -#{$ribbon-fold-size};
+  margin-bottom: -#{$ribbon-fold-size};
+}
+.ribbon-bookmark-v.ribbon-fold::before {
+  top: 0;
+  left: -$ribbon-fold-size;
+}
+
+// Bottom
+
+.ribbon-bookmark-v[data-tor-position~="bottom"] {
+  --tor-ribbon-polygon: polygon(0% 0%, #{$ribbon-thickness/2} #{$ribbon-thickness/2}, 100% 0%, 100% 100%, 0% 100%);
+  padding-bottom: unset;
+  padding-top: #{$ribbon-thickness/2};
+}
+.ribbon-bookmark-v.ribbon-fold[data-tor-position~="bottom"] {
+  --tor-ribbon-polygon: polygon(0% 0%, #{$ribbon-thickness/2} #{$ribbon-thickness/2}, 100% 0%, 100% 100%, 0% 100%, -#{$ribbon-fold-size} calc(100% - #{$ribbon-fold-size}), 0% calc(100% - #{$ribbon-fold-size}));
+}
+.ribbon-bookmark-v.ribbon-fold[data-tor-position~="bottom"]::before {
+  bottom: 0;
+  left: -#{$ribbon-fold-size};
+  top: auto;
+}
+
+
+//
+// Horizontal bookmark ribbon
+//
+
+.ribbon-bookmark-h {
+  --tor-ribbon-polygon: polygon(100% 100%, 0% 100%, #{$ribbon-thickness/2} #{$ribbon-thickness/2}, 0% 0%, 100% 0%);
+  clip-path: var(--tor-ribbon-polygon);
+  margin-bottom: $ribbon-bookmark-margin;
+  margin-top: $ribbon-bookmark-margin;
+  height: $ribbon-thickness;
+  width: calc(var(--tor-ribbon-size) + #{$ribbon-thickness/2});
+  padding-left: #{$ribbon-thickness/2};
+}
+
+// Fold
+
+.ribbon-bookmark-h.ribbon-fold {
+  --tor-ribbon-polygon: polygon(100% 100%, 0% 100%, #{$ribbon-thickness/2} #{$ribbon-thickness/2}, 0% 0%, calc(100% - #{$ribbon-fold-size}) 0%, calc(100% - #{$ribbon-fold-size}) -#{$ribbon-fold-size}, 100% 0%);
+  margin-left: -#{$ribbon-fold-size};
+  margin-right: -#{$ribbon-fold-size};
+}
+.ribbon-bookmark-h.ribbon-fold::before {
+  top: -$ribbon-fold-size;
+  right: 0;
+}
+
+// Left
+
+.ribbon-bookmark-h[data-tor-position~="left"] {
+  --tor-ribbon-polygon: polygon(0% 0%, 100% 0%, calc(100% - #{$ribbon-thickness/2}) #{$ribbon-thickness/2}, 100% 100%, 0% 100%);
+  padding-right: #{$ribbon-thickness/2};
+  padding-left: unset;
+}
+.ribbon-bookmark-h.ribbon-fold[data-tor-position~="left"] {
+  --tor-ribbon-polygon: polygon(0% 0%, #{$ribbon-fold-size} -#{$ribbon-fold-size}, #{$ribbon-fold-size} 0%, 100% 0%, calc(100% - #{$ribbon-thickness/2}) #{$ribbon-thickness/2}, 100% 100%, 0% 100%, 0% 0%);
+}
+.ribbon-bookmark-h.ribbon-fold[data-tor-position~="left"]::before {
+  left: 0;
+  right: auto;
+}
+
+//
+// ------------------------------------------------------------------------
+// Ribbon sizes
+// ------------------------------------------------------------------------
+//
+
+.ribbon-sm {
+  --tor-ribbon-size: #{$ribbon-size-sm};
+}
+
+.ribbon-lg {
+  --tor-ribbon-size: #{$ribbon-size-lg};
+}
+
+.ribbon-xl {
+  --tor-ribbon-size: #{$ribbon-size-xl};
+}

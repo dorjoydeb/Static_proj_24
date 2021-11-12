@@ -1,0 +1,13 @@
+//
+// ------------------------------------------------------------------------
+// Border color
+// ------------------------------------------------------------------------
+//
+
+[data-tor*="border("] {
+  @each $name, $value in $border-colors-hsla {
+    --tor-border-#{$name}: #{$value};
+  }
+  --tor-border-transparent: transparent;
+  --tor-border-opacity: 1;
+}

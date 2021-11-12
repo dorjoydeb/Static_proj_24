@@ -1,0 +1,49 @@
+<section id="home">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-md-2 center-v min-vh-100">
+
+      <!-- left -->
+      <div class="col my-3">
+        <!-- Badge -->
+        <div class="title-badge d-inline-block mb-6 bg-primary text-primary bg-opacity-10 px-3 small">About me</div>
+        <!-- Title -->
+        <h1 class="mb-5">
+          <span data-tor="inview:reveal(up) bounce slow">Hi,</span>
+          <br>
+          <span data-tor="inview:reveal(up) bounce slow delay(.5s)">I'm</span>
+          <span data-tor="inview:reveal(up) bounce slow delay(.6s)" class="text-primary">Niharika</span>
+        </h1>
+        <!-- Subtitle -->
+        <h2 class="h3 font-sans-serif fw-normal {% if dark %}text-body-light{% else %}text-secondary text-darken-xl{% endif %} mb-3">User Interface Designer</h2>
+        <!-- Description -->
+        <p class="{% if dark %}text-body-light{% else %}text-body{% endif %} w-80 mb-6">
+          Hey, are looking for a designer to build your <span class="{% if dark %}text-primary{% else %}text-secondary text-darken-xl{% endif %}">Brand and grow your business?</span> Let's shake hands with me.
+        </p>
+        <!-- CTA -->
+        <button class="btn btn-primary btn-arrow py-2 px-3 mb-4" data-tor="hover:[bg(transparent) text(primary)]">Hire me</button>
+        <!-- Social icons -->
+        <div class="social-icons">
+          <a href="#" class="d-inline-block me-3">
+            <img src="./assets/icons/{% if dark %}messenger-w.svg{% else %}messenger.svg{% endif %}" alt="icon" class="p-2">
+          </a>
+          <a href="#" class="d-inline-block me-3">
+            <img src="./assets/icons/{% if dark %}behance-w.svg{% else %}behance.svg{% endif %}" alt="icon" class="p-2">
+          </a>
+          <a href="#" class="d-inline-block">
+            <img src="./assets/icons/{% if dark %}instagram-w.svg{% else %}instagram.svg{% endif %}" alt="icon" class="p-2">
+          </a>
+        </div>
+      </div>
+      <!-- end .col -->
+
+      <!-- Right Illustration -->
+      <div class="col">
+        {% include "illustrations/hero.html" %}
+      </div>
+      <!-- end .col -->
+
+    </div>
+    <!-- end .row -->
+  </div>
+  <!-- .container -->
+</section>

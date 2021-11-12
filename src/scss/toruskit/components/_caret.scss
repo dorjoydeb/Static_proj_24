@@ -1,0 +1,137 @@
+[data-tor-caret] {
+  position: relative;
+
+  &:after {
+    --caret-icon: #{$caret-icon};
+
+    content: "";
+    height: $caret-size;
+    width: $caret-size*2;
+    position: absolute;
+    bottom: auto;
+    top: -$caret-size;
+    left: $caret-offset;
+    background-color: inherit;
+
+    mask-image: var(--caret-icon);
+    mask-size: cover;
+    mask-repeat: no-repeat;
+  }
+}
+
+//
+// ------------------------------------------------------------------------
+// Position within each side
+// ------------------------------------------------------------------------
+//
+
+[data-tor-caret] {
+  &:after {
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+  }
+}
+
+[data-tor-caret~="start"] {
+  &:after {
+    top: $caret-offset;
+    left: $caret-offset;
+  }
+}
+
+[data-tor-caret~="middle"] {
+  &:after {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+  }
+}
+
+[data-tor-caret~="end"] {
+  &:after {
+    bottom: $caret-offset;
+    right: $caret-offset;
+  }
+}
+
+//
+// ------------------------------------------------------------------------
+// Sides of element
+// ------------------------------------------------------------------------
+//
+
+[data-tor-caret~="top"] {
+  &:after {
+    top: -$caret-size;
+    bottom: auto;
+  }
+}
+
+[data-tor-caret~="right"] {
+  &:after {
+    right: -$caret-size - ($caret-size/2);
+    left: auto;
+    transform: rotate(90deg);
+  }
+}
+
+[data-tor-caret~="bottom"] {
+  &:after {
+    bottom: -$caret-size;
+    top: auto;
+    transform: rotate(180deg);
+  }
+}
+
+[data-tor-caret~="left"] {
+  &:after {
+    left: -$caret-size - ($caret-size/2);
+    right: auto;
+    transform: rotate(-90deg);
+  }
+}
+
+//
+// ------------------------------------------------------------------------
+// Caret position in dropdown
+// ------------------------------------------------------------------------
+//
+
+.dropdown-menu[data-tor-caret][data-popper-placement="bottom-start"] {
+  &:after {
+    bottom: auto;
+    top: -$caret-size;
+    left: 1rem;
+    right: auto;
+  }
+}
+
+.dropdown-menu[data-tor-caret][data-popper-placement="left-start"] {
+  &:after {
+    left: auto !important;
+    right: -$caret-size - ($caret-size/2) !important;
+    top: $caret-offset;
+    transform: rotate(90deg);
+  }
+}
+
+.dropdown-menu[data-tor-caret][data-popper-placement="top-start"] {
+  &:after {
+    top: auto !important;
+    bottom: -$caret-size !important;
+    left: $caret-offset;
+    transform: rotate(180deg);
+  }
+}
+.dropdown-menu[data-tor-caret][data-popper-placement="right-start"] {
+  &:after {
+    left: -$caret-size - ($caret-size/2) !important;
+    right: auto !important;
+    top: $caret-offset;
+    transform: rotate(-90deg);
+  }
+}

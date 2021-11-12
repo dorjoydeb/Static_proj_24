@@ -1,0 +1,89 @@
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- Service box feature -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+{%- macro serviceBox(icon="", title="") -%}
+<div class="col mb-5" data-tor-parent="hover">
+  <a href="#" class="center-v">
+    <!-- Icon -->
+    <div class="circle p-4 bg-secondary me-3" data-tor="!hover(p):bg(primary)">
+      <i class="bi {{ icon }} text-white h3 mb-0"></i>
+    </div>
+    <!-- Heading -->
+    <h3 class="font-sans-serif h5 mb-0">{{ title }}</h3>
+
+    <i class="bi bi-arrow-right ms-auto {% if dark %}text-secondary{% else %}text-body{% endif %}" data-tor="hover(p):[fade.in pull.right(sm)]"></i>
+  </a>
+</div>
+{%- endmacro -%}
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- Skill animated progress -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+{%- macro skillProgress(title="", amount="") -%}
+<div class="skill mb-5">
+  <h3 class="h6 small font-sans-serif mb-3">{{ title }}</h3>
+  <div class="progress rounded-pill {% if dark %}bg-black bg-opacity-20{% endif %}">
+    <div class="progress-bar bg-secondary rounded-pill" role="progressbar" aria-valuenow="{{ amount }}" aria-valuemin="0" aria-valuemax="100" data-tor="inview:@width(0%;{{ amount }}%) exponential slower">
+      <span class="ms-auto me-3">{{ amount }}%</span>
+    </div>
+  </div>
+</div>
+{%- endmacro -%}
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- Experience box -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+{%- macro experienceBox(date="", title="", subtitle="", small="", description="", color="") -%}
+<div class="experience-box row mb-3">
+  <div class="col-md-3 py-2 py-md-5">
+    <small class="d-inline-block date">{{ date }}</small>
+  </div>
+  <div class="description col-md-9 border-start py-md-5">
+    <div class="mb-4">
+      <h5 class="{% if color %}{{ color}}{% else %}text-primary{% endif %} font-sans-serif">{{ subtitle }}</h5>
+      <h4 class="font-sans-serif">{{ title }}</h4>
+      <small class="text-secondary">{{ small }}</small>
+    </div>
+    <p class="small">{{ description }}</p>
+  </div>
+</div>
+{%- endmacro -%}
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- Split words into letters -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+{% macro splitToLetters(tag='p', class='', text='') %}
+{% set words = text | split("") %}
+<span class="text-nowrap">{%- for word in words -%}<{{tag}} class="{{ class }}{% if word == " " %}d-inline{% endif %}">{{ word }}</{{tag}}>{%- endfor -%}</span>
+{% endmacro %}
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- Typewriter -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+{% macro typewriter(tag="", class="", staticText="", typewriter="", offsetStart="10", offsetAdd="5") %}
+<h2 class="{{ class }} overflow-hidden mb-5" data-tor-group=".fx => scroll:[@width(0;auto) @visibility(hidden;visible), {start: /{{ offsetStart }}+{{ offsetAdd }}/, end: /{{ offsetStart }}+{{ offsetAdd }}/}];">
+  {{ staticText }}
+  <span class="text-primary">
+    {{ splitToLetters(tag="span", class="fx", text=typewriter) }}
+    <span class="{% if dark %}text-white{% else %}text-body{% endif %} text-opacity-30 ms-n1" data-tor="loop:blink">|</span>
+  </span>
+</h2>
+{% endmacro %}
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- Work process card -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+{% macro workCard(icon="", title="", description="", bg="") %}
+<div class="fx {{ bg }} rounded-xl p-6">
+  <img class="w-20 mb-6" src="{{ icon }}" alt="icon">
+  <h3 class="font-sans-serif text-white mb-4">{{ title }}</h3>
+  <p class="mb-4 text-body-light">{{ description }}</p>
+  <a href="#contact" class="btn btn-soft-light btn-arrow">Contact me</a>
+</div>
+{% endmacro %}

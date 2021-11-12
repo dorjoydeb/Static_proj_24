@@ -1,0 +1,51 @@
+<section id="testimonials" class="pb-5 pb-md-8">
+  <div class="container py-4">
+    <div class="row row-cols-md-2">
+
+      <div class="col">
+        <div class="d-none d-md-block px-7 px-xl-8"
+          data-tor-group="
+            #female-1-window-wfh-8_1_ => inview:scale.from(0);
+            #female-body-wfh-8_1_ .illustration-reveal  => inview:[pull.left(md) fade.in];
+            #bubbles .illustration-reveal               => inview:scale.from(0) originX(0%) originY(100%) bounce;
+            #bubbles .illustration-loop                 => loop:float(/~30px/, {duration: /2000~2000ms/});
+            .illustration-reveal                        => delay(/+50ms/) slower;
+            #female-1-head-wfh-8_1_                     => loop:swing(5deg, {pause: 3s, iterations: 2}) originX(40%) originY(70%);
+            #female-1-arm-left-fwh-8_1_                 => mouseY:@T=rotate(0deg; 5deg, {method: continuous}) originX(25%) originY(50%);
+          "
+        >
+          {% include "illustrations/testimonials.html" %}
+        </div>
+      </div>
+
+      <div class="col mt-auto mb-5">
+        <!-- Badge -->
+        <div class="title-badge d-inline-block mb-6 bg-primary text-primary bg-opacity-10 px-3 small">Testimonials</div>
+        <!-- Title -->
+        {{ macros.typewriter(tag="h2", class="mb-6", staticText="At your service! Check the feedback from my satisfied", typewriter="clients") }}
+
+        <div class="w-80">
+          <div class="tor-slider" data-tor-slider="indicators(true){% if dark %} indicators-light{% endif %}">
+            {% for item in data.testimonials %}
+            <div class="testimonial-item">
+              <p class="mb-6">{{ item.description }}</p>
+              <div class="center-v">
+                <div class="circle circle-lg">
+                  <img src="./assets/img/{{ item.img }}" alt="client">
+                </div>
+                <div class="ms-4">
+                  <p class="text-dark mb-0 fw-500">{{ item.name }}</p>
+                  <small class="text-primary">{{ item.job }}</small>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end .row -->
+  </div>
+  <!-- end .container -->
+</section>
+<!-- end #testimonials -->

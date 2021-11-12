@@ -1,0 +1,36 @@
+---
+root: "./"
+---
+<!DOCTYPE html>
+<html lang="en">
+  {% include "required/head.html" %}
+<body class="{% if dark %}theme-dark bg-dark{% endif %}">
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- Navigation -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  {% include "navigation/main.html" %}
+  {% include "navigation/offscreen.html" %}
+
+  <h1 class="text-center pt-8 pb-7">
+    <span>{{ h1 }}</span>
+    <span class="text-primary">{{ h1Typewriter }}</span>
+  </h1>
+
+  {{ content | safe }}
+
+  {%- import "required/macros.html" as macros with context -%}
+
+  {%- if not noFooter -%}
+  {% include "sections/contact.html" %}
+  {% include "sections/footer.html" %}
+  {%- endif -%}
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- Scripts -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  {% include "required/scripts.html" %}
+</body>
+</html>

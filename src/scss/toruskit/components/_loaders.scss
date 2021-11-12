@@ -1,0 +1,44 @@
+.loader {
+  position: relative;
+  padding: 1.25rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  > * {
+    position: absolute;
+  }
+
+  svg {
+    width: 100%;
+    height: auto;
+    top: 0;
+    left: 0;
+
+    circle {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 10%;
+    }
+  }
+}
+
+.loader {
+  svg {
+    transform: rotate(-90deg);
+
+    circle {
+      &:first-of-type {
+        stroke-dasharray: var(--loaded, 0), 100;
+        transition: stroke-dasharray .4s cubic-bezier(.04,.24,.18,1);
+      }
+    }
+  }
+
+  .status {
+    display: inline-block;
+    &:before {
+      content: var(--status, '0%');
+    }
+  }
+}

@@ -1,0 +1,58 @@
+/*!
+ * Torus Kit v2.0 (https://toruskit.com/)
+ * Copyright 2021 Torus Kit
+ */
+
+@import "./functions";
+@import "./variables";
+
+//
+// ------------------------------------------------------------------------
+// Utilities
+// ------------------------------------------------------------------------
+//
+
+@import "./toruskit/utilities/position";
+@import "./toruskit/utilities/resolution";
+
+//
+// ------------------------------------------------------------------------
+// Effects
+// ------------------------------------------------------------------------
+//
+
+// Reset
+
+@import "./toruskit/effects/reset";
+
+// Transition types
+
+@import "./toruskit/effects/transition-types";
+@import "./toruskit/effects/transition-duration";
+
+// Built in effects
+
+@import "./toruskit/effects/built-in/background-color";
+@import "./toruskit/effects/built-in/block";
+@import "./toruskit/effects/built-in/blur";
+@import "./toruskit/effects/built-in/border-color";
+@import "./toruskit/effects/built-in/fade-opacity";
+@import "./toruskit/effects/built-in/mask";
+@import "./toruskit/effects/built-in/push-pull";
+@import "./toruskit/effects/built-in/reveal";
+@import "./toruskit/effects/built-in/shadows";
+@import "./toruskit/effects/built-in/text-color";
+@import "./toruskit/effects/built-in/rotate";
+
+//
+// ------------------------------------------------------------------------
+// Loops
+// ------------------------------------------------------------------------
+//
+
+@import "./toruskit/loops/variables";
+@import "./toruskit/loops/reset";
+@import "./toruskit/loops/keyframes";
+@import "./toruskit/loops/variants";
+@import "./toruskit/loops/transitions";
+@import "./toruskit/loops/duration";

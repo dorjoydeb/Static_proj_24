@@ -1,0 +1,77 @@
+@if($enable-shadows) {
+  //
+  // Reset
+  //
+
+  .shadow-xs,
+  .shadow-sm,
+  .shadow,
+  .shadow-lg,
+  .shadow-xl,
+  .shadow-pop,
+  .shadow-risen,
+  .svg-shadow-xs,
+  .svg-shadow-sm,
+  .svg-shadow,
+  .svg-shadow-lg,
+  .svg-shadow-xl,
+  .svg-shadow-pop	{
+    --tor-shadow-inset: var(--tor-none,/*!*/ /*!*/);
+    // --tor-shadow-inset: var(--tor-none, ) !important;
+    --tor-shadow-intensity: #{$box-shadow-intensity};
+    --tor-shadow-color: #{red($black)}, #{green($black)}, #{blue($black)};
+    --tor-shadow-offset-down: 0rem;
+    --tor-shadow-offset-left: 0rem;
+  }
+
+  $utilities: (
+    "shadow": return-utility-map("shadow"),
+    "svg-shadow": return-utility-map("svg-shadow"),
+  );
+
+  //
+  // Shadow intensity
+  //
+
+  @each $name, $value in $shadow-intensity {
+    .shadow-intensity-#{$name} {
+      --tor-shadow-intensity: #{$value};
+    }
+  }
+
+  //
+  // Shadow color
+  //
+
+  @each $name, $value in $all-colors {
+    @if($name != "light") {
+      .shadow-#{$name} {
+        --tor-shadow-color: #{red($value)}, #{green($value)}, #{blue($value)};
+      }
+    }
+  }
+
+  //
+  // Shadow offset
+  //
+
+  @each $name, $value in $shadow-offset {
+    .shadow-offset-down-#{$name} {
+      --tor-shadow-offset-down: #{$value};
+    }
+    .shadow-offset-left-#{$name} {
+      --tor-shadow-offset-left: #{$value};
+    }
+  }
+
+  .svg-shadow-transparent {
+    filter: drop-shadow(0 0 0 transparent);
+  }
+
+  .shadow-inset {
+    --tor-shadow-inset: inset !important;
+  }
+
+}
+
+@import "call-utilities-api";

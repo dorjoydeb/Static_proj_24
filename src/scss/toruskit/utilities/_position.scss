@@ -1,0 +1,114 @@
+//
+// ------------------------------------------------------------------------
+// Position
+// ------------------------------------------------------------------------
+//
+
+$utilities: (
+  "position": (
+    property: position,
+    responsive: true,
+    values: absolute relative fixed,
+  ),
+);
+
+@import "../../bootstrap/utilities/call-utilities-api";
+
+.position-fixed {
+  position: fixed !important;
+}
+
+[data-tor]{
+  --tor-top: auto;
+  --tor-right: auto;
+  --tor-bottom: auto;
+  --tor-left: auto;
+  --tor-shift-x: 0%;
+  --tor-shift-y: 0%;
+
+  // --tor-add-shift-* is additional element transform. Used in .modal transitions for example.
+  --tor-add-shift-x: 0%;
+  --tor-add-shift-y: 0%;
+}
+
+[data-tor~="top"] {
+  --tor-top: 0;
+}
+[data-tor~="bottom"] {
+  --tor-bottom: 0;
+}
+[data-tor~="left"] {
+  --tor-left: 0;
+}
+[data-tor~="right"] {
+  --tor-right: 0;
+}
+
+[data-tor~="middle"] {
+  --tor-top: 50%;
+  --tor-shift-y: -50% !important;
+}
+[data-tor~="center"] {
+  --tor-left: 50%;
+  --tor-shift-x: -50% !important;
+}
+
+[data-tor] {
+  top: var(--tor-top);
+  right: var(--tor-right);
+  bottom: var(--tor-bottom);
+  left: var(--tor-left);
+  --tor-moveX: calc(var(--tor-shift-x, 0) + var(--tor-add-shift-x, 0)) !important;
+  --tor-moveY: calc(var(--tor-shift-y, 0) + var(--tor-add-shift-y, 0)) !important;
+}
+
+[data-tor~="middle"]:not([data-fx]),
+[data-tor~="center"]:not([data-fx]) {
+  transform: translateX( var(--tor-moveX) ) translateY( var(--tor-moveY) ) !important;
+}
+
+//
+// ------------------------------------------------------------------------
+// Push
+// ------------------------------------------------------------------------
+//
+
+$push-directions: (
+  "right": x,
+  "left":  x,
+  "up":    y,
+  "down":  y
+);
+
+[data-tor-push] {
+  --tor-push-x: 0%;
+  --tor-push-y: 0%;
+}
+
+[data-tor-push*="up"] {
+  --tor-push-y-direction: -1;
+}
+[data-tor-push*="left"] {
+  --tor-push-x-direction: -1;
+}
+
+// @each $percents-property, $percents-value  in $push-percents {
+//   @each $directions-property, $directions-value in $push-directions {
+//     [data-tor-push~="#{$directions-property}(#{$percents-property})"] {
+//       @if $directions-property == "up" or $directions-property == "left" {
+//         --tor-push-#{$directions-value}: -#{$percents-property}#{"%"};
+//       } @else {
+//         --tor-push-#{$directions-value}: #{$percents-property}#{"%"};
+//       }
+//     }
+//   }
+// }
+
+[data-tor-push] {
+  --tor-moveX: calc( (var(--tor-push-x, 0%) * var(--tor-push-x-direction, 1)) + var(--tor-shift-x, 0%) ) !important;
+  --tor-moveY: calc( (var(--tor-push-y, 0%) * var(--tor-push-y-direction, 1)) + var(--tor-shift-y, 0%) ) !important;
+
+  &:not([data-tor-fx]) {
+    transform: translateX( var(--tor-moveX) ) translateY( var(--tor-moveY) ) !important;
+  }
+}

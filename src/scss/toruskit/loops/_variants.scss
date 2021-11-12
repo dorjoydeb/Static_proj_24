@@ -1,0 +1,33 @@
+@each $variant, $variant-value in $loop-variants {
+  [data-tor*="loop:#{$variant}"] {
+    $name: #{str-replace($variant, ".", "-")};
+
+    --tor-loop-#{$name}-value: #{map-get($variant-value, transform-end-value)};
+
+    @if( map-has-key($variant-value, duration) ) {
+      --tor-loop-#{$name}-duration: #{map-get($variant-value, duration)};
+    } @else {
+      --tor-loop-#{$name}-duration: var(--tor-loop-duration);
+    }
+
+    @if( map-has-key($variant-value, direction) ) {
+      --tor-loop-#{$name}-direction: #{map-get($variant-value, direction)};
+    } @else {
+      --tor-loop-#{$name}-direction: var(--tor-loop-direction);
+    }
+
+    @if( map-has-key($variant-value, timing) ) {
+      --tor-loop-#{$name}-timing: #{map-get($variant-value, timing)};
+    } @else {
+      --tor-loop-#{$name}-timing: var(--tor-loop-timing);
+    }
+
+  }
+}
+
+@each $color, $color-value in $theme-colors {
+  [data-tor*=":radiate(#{$color}"] {
+    --tor-loop-color-0: #{rgba($color-value, .8)};
+    --tor-loop-color-100: #{rgba($color-value, 0)};
+  }
+}

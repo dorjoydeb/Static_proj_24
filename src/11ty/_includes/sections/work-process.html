@@ -1,0 +1,21 @@
+<section id="work-process" class="py-5 py-md-8 border-bottom">
+  <div class="container py-4">
+
+    <div class="w-md-50">
+      <!-- Badge -->
+      <div class="title-badge d-inline-block mb-6 bg-primary text-primary bg-opacity-10 px-3 small">Work process</div>
+      {{ macros.typewriter(tag="h2", class="mb-4", staticText="Check some details about my", typewriter="work process", offsetAdd=4) }}
+      <p class="mb-6">Nullam quis nisl mauris. Praesent id urna ut dolor tincidunt semper. Nam orci leo, dapibus nec molestie a, viverra ut velit.</p>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3" data-tor-group=".fx => inview:[pull.up(md) fade.in] delay(/+100ms/) slow;">
+      {% for item in data.workProcess %}
+      <div class="col">
+        {{ macros.workCard(icon=item.icon, title=item.title, description=item.description, bg=item.bg) }}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <!-- end .container -->
+</section>
+<!-- end #work-process -->

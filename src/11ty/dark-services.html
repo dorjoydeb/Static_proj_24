@@ -1,0 +1,28 @@
+---
+layout: subpage
+dark: true
+h1: My
+h1Typewriter: Services
+---
+{%- import "required/macros.html" as macros with context -%}
+
+<section class="{% if dark %}bg-dark{% else %}bg-light{% endif %} py-8">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-md-2" data-tor-group=".circle => inview:[scale.from(0) rotate.from(20deg)] delay(/+50ms/) slow; h3 => inview:[pull.left(sm) fade.in] slow delay(/+50ms/);">
+      {% for item in data.services %}
+        <div class="col">
+          <div class="mb-7">
+            <!-- Icon -->
+            <div class="circle p-5 bg-secondary mb-4" data-tor="!hover(p):bg(primary)">
+              <i class="bi {{ item.icon }} text-white h3 mb-0"></i>
+            </div>
+            <!-- Heading -->
+            <h2 class="font-sans-serif pb-3 mb-4 border-bottom">{{ item.title }}</h2>
+            <!-- Description -->
+            <p>{{ item.description }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

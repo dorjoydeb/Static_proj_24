@@ -1,0 +1,27 @@
+//
+// ------------------------------------------------------------------------
+// Resolution
+//
+// Utility for JS to determinate current @media resolution
+// ------------------------------------------------------------------------
+//
+
+$resolutions: (
+  xxl: map-get($grid-breakpoints, xxl),
+  xl: map-get($grid-breakpoints, xl),
+  lg: map-get($grid-breakpoints, lg),
+  md: map-get($grid-breakpoints, md),
+  sm: map-get($grid-breakpoints, sm),
+  all: 0px,
+);
+
+
+$root-resolutions: null;
+
+@each $name, $width in $resolutions {
+  $root-resolutions: append($root-resolutions, "#{$name}:#{$width}", comma);
+}
+
+:root {
+  --tor-resolutions: #{quote($root-resolutions)};
+}

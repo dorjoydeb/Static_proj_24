@@ -1,0 +1,122 @@
+.btn {
+  will-change: background-color;
+
+  &.rounded-pill {
+    padding-left: $btn-rounded-pill-padding-x;
+    padding-right: $btn-rounded-pill-padding-x;
+  }
+}
+
+//
+// Soft button
+//
+
+.btn-soft {
+  box-shadow: $btn-soft-box-shadow;
+}
+
+@each $name, $value in $theme-colors {
+  .btn-soft-#{$name} {
+    @include button-variant(rgba($value, 0.2), transparent, $value, rgba($value, 0.3), transparent, $value, rgba($value, 0.3), transparent, $value);
+  }
+}
+
+//
+// Arrow and chevron button indicators
+//
+
+.btn-arrow,
+.btn-arrow-left,
+.btn-chevron,
+.btn-chevron-left {
+  &:before,
+  &:after {
+    display: inline-block;
+    opacity: $btn-indicator-opacity;
+    transform: translateX(0);
+    transition: transform .3s ease;
+    align-self: center;
+    background-color: $btn-indicator-color;
+    mask-image: var(--btn-icon);
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+
+    will-change: transform;
+  }
+
+  &:empty {
+    &:before,
+    &:after {
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+}
+
+.btn-arrow,
+.btn-chevron {
+  &:after {
+    content: "";
+    margin-left: $btn-indicator-margin-x;
+    margin-right: 2px;
+
+    width: $btn-indicator-size;
+    height: $btn-indicator-size;
+  }
+}
+.btn-arrow-left,
+.btn-chevron-left {
+  &:before {
+    content: "";
+    margin-right: $btn-indicator-margin-x;
+    margin-left: 2px;
+
+    width: $btn-indicator-size;
+    height: $btn-indicator-size;
+  }
+}
+
+.btn-arrow-left,
+.btn-chevron-left {
+  &:hover {
+    &:before {
+      transform: translateX(-$btn-indicator-translate-x);
+    }
+  }
+}
+
+.btn-arrow,
+.btn-chevron {
+  &:hover {
+    &:after {
+      transform: translateX($btn-indicator-translate-x);
+    }
+  }
+}
+
+// Arrow button
+
+.btn-arrow {
+  &:after {
+    --btn-icon: #{$btn-indicator-arrow};
+  }
+}
+.btn-arrow-left {
+  &:before {
+    --btn-icon: #{$btn-indicator-arrow-left};
+  }
+}
+
+// Chevron button
+
+.btn-chevron {
+  &:after {
+    --btn-icon: #{$btn-indicator-chevron};
+  }
+}
+.btn-chevron-left {
+  &:before {
+    --btn-icon: #{$btn-indicator-chevron-left};
+  }
+}

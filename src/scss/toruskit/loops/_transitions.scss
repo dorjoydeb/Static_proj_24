@@ -1,0 +1,9 @@
+[data-tor~="quad"] {
+  --tor-loop-timing: #{$transition-timing-quad} !important;
+}
+[data-tor~="exponential"] {
+  --tor-loop-timing: #{$transition-timing-exponential} !important;
+}
+[data-tor~="bounce"] {
+  --tor-loop-timing: #{$transition-timing-bounce} !important;
+}

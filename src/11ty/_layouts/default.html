@@ -1,0 +1,24 @@
+---
+root: "./"
+---
+<!DOCTYPE html>
+<html lang="en">
+  {% include "required/head.html" %}
+<body class="{% if dark %}theme-dark bg-dark{% endif %}">
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- Navigation -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  {% include "navigation/main.html" %}
+  {% include "navigation/offscreen.html" %}
+
+  {{ content | safe }}
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- Scripts -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  {% include "required/scripts.html" %}
+</body>
+</html>

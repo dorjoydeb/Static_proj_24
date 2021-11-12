@@ -1,0 +1,27 @@
+<section id="my-weapons" class="py-5 py-md-8 {% if dark %}bg-dark bg-darken-sm{% else %}bg-light{% endif %}">
+  <div class="container py-3">
+    <div class="row row-cols-1 row-cols-md-2 center-v">
+
+      <div class="col">
+        <!-- Badge -->
+        <div class="title-badge d-inline-block mb-6 bg-primary text-primary bg-opacity-10 px-3 small">Weapons</div>
+        {{ macros.typewriter(tag="h2", class="mb-4", staticText="These are my all-time favorite", typewriter="everyday tools", offsetAdd=4) }}
+        <p class="mb-6">I always loved those software that I use in my work, because I am very good at these, these are the main tools of my design career those are help me for make sure my Clients satisfaction.</p>
+        <a href="#" class="btn-link btn-arrow">Let's see my work process</a>
+      </div>
+
+      <div class="col">
+        <div class="p-md-5"
+          data-tor-group="
+          .illustration-reveal  => inview:scale.from(0) delay(/~500ms/) slower;
+          .illustration-loop    => loop:circle(.5rem, {delay: /~500ms/, duration: /2s~5s/});
+        ">
+          {% include "illustrations/tools.html" %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- end .container -->
+</section>
+<!-- end #my-weapons -->

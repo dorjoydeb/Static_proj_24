@@ -1,0 +1,386 @@
+//
+// ------------------------------------------------------------------------
+// THEME COLORS
+// ------------------------------------------------------------------------
+//
+
+// Color system
+
+$white:    #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
+
+$grays: (
+  "100": $gray-100,
+  "200": $gray-200,
+  "300": $gray-300,
+  "400": $gray-400,
+  "500": $gray-500,
+  "600": $gray-600,
+  "700": $gray-700,
+  "800": $gray-800,
+  "900": $gray-900
+) !default;
+
+$blue:      #1f44ff !default;
+$indigo:    #6610f2 !default;
+$navy:      #001f3f !default; // New Torus Kit color
+$maroon:    #85144b !default; // New Torus Kit color
+$brown:     #806248 !default; // New Torus Kit color
+$purple:    #6f42c1 !default;
+$pink:      #d63384 !default;
+$magenta:   #f012be !default; // New Torus Kit color
+$red:       #dc3545 !default;
+$orange:    #fd7e14 !default;
+$yellow:    #ffc107 !default;
+$lime:      #01ff70 !default; // New Torus Kit color
+$green:     #198754 !default;
+$teal:      #20c997 !default;
+$cyan:      #0dcaf0 !default;
+
+$primary:   $blue !default;
+$secondary: $gray-600 !default;
+$success:   $green !default;
+$info:      $cyan !default;
+$warning:   $yellow !default;
+$danger:    $red !default;
+$light:     $gray-100 !default;
+$dark:      $gray-800 !default;
+$gray:      $gray-400 !default;
+
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark,
+  "gray":       $gray,
+) !default;
+
+//
+// New colors
+//
+
+$new-colors: () !default;
+$new-colors: (
+  "navy":     $navy,
+  "maroon":   $maroon,
+  "brown":    $brown,
+  "magenta":  $magenta,
+  "lime":     $lime,
+  "black":    $black,
+);
+
+//
+// Colors
+//
+
+$colors: (
+  "blue":       $blue,
+  "indigo":     $indigo,
+  "purple":     $purple,
+  "pink":       $pink,
+  "red":        $red,
+  "orange":     $orange,
+  "yellow":     $yellow,
+  "green":      $green,
+  "teal":       $teal,
+  "cyan":       $cyan,
+  "white":      $white,
+  "gray":       $gray-500,
+  "gray-dark":  $gray-800,
+) !default;
+
+$theme-colors-hsla:   () !default;
+$all-colors:          () !default;
+$bg-colors-hsla:      () !default;
+$border-colors-hsla:  () !default;
+$text-colors-hsla:    () !default;
+
+//
+// Alpha values
+//
+
+$alpha-values: () !default;
+$alpha-values: (
+  0: 0,
+  5: .05,
+  10: .1,
+  20: .2,
+  30: .3,
+  40: .4,
+  50: .5,
+  60: .6,
+  70: .7,
+  80: .8,
+  90: .9,
+  100: 1
+);
+
+//
+// ------------------------------------------------------------------------
+// OPTIONS
+// ------------------------------------------------------------------------
+//
+
+$enable-extended-color-palette:   true !default;
+$enable-shadows:                  true !default;
+
+//
+// Shadows
+//
+
+$shadow-size-xs:      var(--tor-shadow-offsetX, 0rem) calc(0.125rem + var(--tor-shadow-offsetY, 0rem))  0.1875rem !default;
+$shadow-size-sm:      var(--tor-shadow-offsetX, 0rem) calc(0.125rem + var(--tor-shadow-offsetY, 0rem)) 0.375rem !default;
+$shadow-size:         var(--tor-shadow-offsetX, 0rem) calc(0.25rem + var(--tor-shadow-offsetY, 0rem)) 0.625rem !default;
+$shadow-size-lg:      var(--tor-shadow-offsetX, 0rem) calc(0.25rem + var(--tor-shadow-offsetY, 0rem)) 1.5rem !default;
+$shadow-size-xl:      var(--tor-shadow-offsetX, 0rem) calc(0.75rem + var(--tor-shadow-offsetY, 0rem)) 2rem !default;
+$shadow-size-pop:     var(--tor-shadow-offsetX, 0rem) calc(1.5rem + var(--tor-shadow-offsetY, 0rem)) 5.5rem !default;
+$shadow-size-risen:   var(--tor-shadow-offsetX, 0rem) calc(1.5rem + var(--tor-shadow-offsetY, 0rem)) 1rem -1rem !default;
+
+$shadow-opacity-xs:     0.1 !default;
+$shadow-opacity-sm:     0.15 !default;
+$shadow-opacity:        0.15 !default;
+$shadow-opacity-md:     0.15 !default;
+$shadow-opacity-lg:     0.25 !default;
+$shadow-opacity-xl:     0.25 !default;
+$shadow-opacity-pop:    0.5 !default;
+$shadow-opacity-risen:  0.3 !default;
+
+$shadow-xs:           $shadow-size-xs rgba(var(--tor-shadow-color), calc(#{$shadow-opacity-xs} * var(--tor-shadow-intensity))) !default;
+$shadow-sm:           $shadow-size-sm rgba(var(--tor-shadow-color), calc(#{$shadow-opacity-sm} * var(--tor-shadow-intensity))) !default;
+$shadow:              $shadow-size rgba(var(--tor-shadow-color), calc(#{$shadow-opacity} * var(--tor-shadow-intensity))) !default;
+$shadow-lg:           $shadow-size-lg rgba(var(--tor-shadow-color), calc(#{$shadow-opacity-lg} * var(--tor-shadow-intensity))) !default;
+$shadow-xl:           $shadow-size-xl rgba(var(--tor-shadow-color), calc(#{$shadow-opacity-xl} * var(--tor-shadow-intensity))) !default;
+$shadow-pop:          $shadow-size-pop rgba(var(--tor-shadow-color), calc(#{$shadow-opacity-pop} * var(--tor-shadow-intensity))) !default;
+$shadow-risen:        $shadow-size-risen rgba(var(--tor-shadow-color), calc(#{$shadow-opacity-risen} * var(--tor-shadow-intensity))) !default;
+$shadow-transparent:  0 0 0 transparent !default;
+
+$shadows: () !default;
+$shadows: (
+  null:       var(--tor-shadow-inset) $shadow,
+  xs:         var(--tor-shadow-inset) $shadow-xs,
+  sm:         var(--tor-shadow-inset) $shadow-sm,
+  lg:         var(--tor-shadow-inset) $shadow-lg,
+  xl:         var(--tor-shadow-inset) $shadow-xl,
+  pop:        var(--tor-shadow-inset) $shadow-pop,
+  risen:      var(--tor-shadow-inset) $shadow-risen,
+  no:          none,
+);
+
+$shadow-offset: () !default;
+$shadow-offset: (
+  xs: 0.25rem,
+  sm: 1rem,
+  md: 2rem,
+  lg: 5rem,
+  xl: 8rem,
+);
+
+$shadow-intensity: () !default;
+$shadow-intensity: (
+  xs: 0.25,
+  sm: 0.5,
+  md: 1,
+  lg: 2,
+  xl: 3,
+);
+
+//
+// Box shadow
+//
+
+$box-shadow-intensity-light:    .5;
+$box-shadow-intensity:          1;
+$box-shadow-intensity-strong:   2;
+
+$box-shadow-xs:     0 0.125rem 0.1875rem rgba($black, $shadow-opacity-xs) !default;
+$box-shadow-sm:     0 0.125rem 0.375rem rgba($black, $shadow-opacity-sm) !default;
+$box-shadow:        0 0.25rem 0.625rem rgba($black, $shadow-opacity) !default;
+$box-shadow-lg:     0 0.25rem 1.5rem rgba($black, $shadow-opacity-lg) !default;
+$box-shadow-xl:     0 0.75rem 2rem rgba($black, $shadow-opacity-xl) !default;
+$box-shadow-pop:    0 1.5rem 5.5rem rgba($black, $shadow-opacity-pop) !default;
+$box-shadow-risen:  0 1.5rem 1rem -1rem rgba($black, $shadow-opacity-risen) !default;
+$box-shadow-inset:  inset 0 1px 2px rgba($black, .075) !default;
+
+//
+// Color
+//
+// Color palette extend
+// Merges default $colors and $theme-colors with $new-colors
+//
+
+@if $enable-extended-color-palette {
+  $colors:      map-merge($colors, $new-colors);
+  $all-colors:  map-merge($colors, $theme-colors);
+}
+@else {
+  $all-colors:  $theme-colors;
+}
+
+@each $name, $value in $all-colors {
+  $h: #{str-replace(#{round(hue($value))}, "deg", "")};
+  $s: #{round(saturation($value))};
+  $l: #{round(lightness($value))};
+
+  $hsla-bg:           hsla($h, $s, calc(#{$l} * var(--tor-bg-lightness, 1)), var(--tor-bg-opacity, 1) );
+  $hsla-border:       hsla($h, $s, $l, var(--tor-border-opacity, 1) );
+  $hsla-text:         hsla($h, $s, calc(#{$l} * var(--tor-text-lightness, 1)), var(--tor-text-opacity, 1) );
+
+  $update-bg:         ($name: $hsla-bg);
+  $update-border:     ($name: $hsla-border);
+  $update-text:       ($name: $hsla-text);
+
+  $bg-colors-hsla:      map-merge($bg-colors-hsla, $update-bg);
+  $border-colors-hsla:  map-merge($border-colors-hsla, $update-border);
+  $text-colors-hsla:    map-merge($text-colors-hsla, $update-text);
+}
+
+//
+// Shading colors steps
+// Values for lighten-* and darken-* class
+//
+
+$color-shading: () !default;
+$color-shading: (
+  xs: 0.1,
+  sm: 0.2,
+  md: 0.3,
+  lg: 0.4,
+  xl: 0.5,
+);
+
+//
+// Transitions
+//
+
+$transition-duration:               350ms !default;
+$transition-duration-quad:          450ms !default;
+$transition-duration-exponential:   600ms !default;
+$transition-duration-bounce:        500ms !default;
+$transition-duration-ease-out:      700ms !default;
+
+$transition-timing:                     cubic-bezier(.35,0,.1,1) !default;
+$transition-timing-quad:                cubic-bezier(0.23, 0, 0, 1) !default;
+$transition-timing-quartic:             cubic-bezier(.77,0,.18,1) !default;
+$transition-timing-exponential:         cubic-bezier(.9, 0, .1, 1) !default;
+$transition-timing-bounce:              cubic-bezier(.4, 0, 0, 1.4) !default;
+$transition-timing-bounce-exponential:  cubic-bezier(.9,0,0,1.3) !default;
+$transition-timing-ease-out:            cubic-bezier(0, .2, .15, 1) !default;
+$transition-timing-linear:              linear !default;
+
+$transition:                $transition-duration $transition-timing !default;
+$transition-exponential:    $transition-duration-exponential $transition-timing-exponential !default;
+$transition-quad:           $transition-duration-quad $transition-timing-quad !default;
+$transition-bounce:         $transition-duration-bounce $transition-timing-bounce !default;
+$transition-linear:         $transition-duration $transition-timing-linear !default;
+
+$transition-duration-multiplier: () !default;
+$transition-duration-multiplier: (
+  fastest:  .45,
+  faster:   .6,
+  fast:     .85,
+  slow:     2,
+  slower:   3,
+  slowest:  4,
+);
+
+$sizes-percents: () !default;
+$sizes-percents: (
+  10:  10%,
+  20:  20%,
+  25:  25%,
+  30:  30%,
+  33:  33.333%,
+  40:  40%,
+  50:  50%,
+  60:  60%,
+  66:  66.666%,
+  70:  70%,
+  75:  75%,
+  80:  80%,
+  90:  90%,
+  100:  100%,
+  auto:  auto,
+);
+
+//
+// Z-index
+//
+
+$zindex: () !default;
+$zindex: (
+  n2: -2,
+  n1: -1,
+  0:  0,
+  1:  1,
+  2:  2,
+);
+
+//
+// ------------------------------------------------------------------------
+// EFFECTS
+// ------------------------------------------------------------------------
+//
+
+//
+// ------------------------------------------------------------------------
+// Blur
+// ------------------------------------------------------------------------
+//
+
+$blur-values: (
+  no: 0rem,
+  xs:   0.25rem,
+  sm:   0.5rem,
+  md:   1rem,
+  lg:   2rem,
+  xl:   4rem,
+);
+
+//
+// ------------------------------------------------------------------------
+// Push & Pull (translate)
+// ------------------------------------------------------------------------
+//
+
+$push-pull-values: (
+  xs:   0.25rem,
+  sm:   1rem,
+  md:   2rem,
+  lg:   5rem,
+  xl:   8rem,
+  full: 100%,
+  half: 50%,
+);
+
+$CSS_PROPERTIES: [];
+
+:root {
+  --tor-predefined-values:  #{str-replace(#{map-keys(map-collect(
+    $all-colors,
+    $blur-values,
+    $push-pull-values,
+    (
+      risen: risen,
+      pop: pop,
+      fastest: fastest,
+      faster: faster,
+      fast: fast,
+      slow: slow,
+      slower: slower,
+      slowest: slowest,
+    ),
+  ))}, " ", "")};
+}

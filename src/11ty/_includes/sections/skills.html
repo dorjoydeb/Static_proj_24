@@ -1,0 +1,39 @@
+<section id="skills" class="py-5 mt-3 py-lg-8">
+  <div class="container">
+    <!-- Badge -->
+    <div class="title-badge d-inline-block mb-3 bg-primary text-primary bg-opacity-10 px-3 small">Skills</div>
+
+    <div class="row row-cols-1 row-cols-md-2 mt-md-5 center-v">
+      <!-- - - - - - - - -  -->
+      <!-- Description -->
+      <!-- - - - - - - - -  -->
+      <div class="col">
+        <!-- Title -->
+        {{ macros.typewriter(tag="h2", class="mb-4 w-80", staticText="As a designer I am constantly improving my", typewriter="skills") }}
+
+        <!-- Description -->
+        <p class="mb-6">Aenean lacinia, mauris nec rutrum consequat, ante ipsum imperdiet sapien, ultricies consectetur ipsum nunc facilisis tortor. Curabitur porta blandit erat, id semper est consequat</p>
+
+        <!-- Skill progress -->
+        <div id="skill-progress">
+          {% for item in data.services %}
+            {{ macros.skillProgress(title=item.title, amount=item.amount) }}
+          {% endfor %}
+        </div>
+      </div>
+      <!-- end .col -->
+
+      <!-- - - - - - - - -  -->
+      <!-- Illustration -->
+      <!-- - - - - - - - -  -->
+      <div class="col">
+        <div class="px-4 ps-md-7 pe-md-0">
+          {% include "illustrations/skills.html" %}
+        </div>
+      </div>
+      <!-- end .col -->
+
+    </div>
+  </div>
+</section>
+<!-- end #skills -->

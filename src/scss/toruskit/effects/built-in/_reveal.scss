@@ -1,0 +1,88 @@
+//
+// ------------------------------------------------------------------------
+// Reveal
+// ------------------------------------------------------------------------
+//
+
+[data-tor*=":reveal.hide("],
+[data-tor*=":reveal("] {
+  clip-path: var(--tor-reveal);
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  contain: paint;
+  will-change: transform;
+  // transition-property: clip-path, transform;
+  // transition-delay: calc(var(--tor-delay) -19ms), var(--tor-delay);
+  transition-delay: calc(var(--tor-delay) + 100ms);
+}
+
+span[data-tor*=":reveal("] {
+  display: inline-block;
+}
+
+//
+// ------------------------------------------------------------------------
+// CSS variables
+// ------------------------------------------------------------------------
+//
+
+[data-tor*=":reveal("] {
+
+  // Active
+
+  --tor-reveal: inset(0% 0% 0% 0%);
+  --tor-translateY: 0%;
+  --tor-translateX: 0%;
+}
+
+[data-tor*=":reveal.hide("] {
+
+  // Active
+
+  --tor-reveal: inset(0% 0% 0% 0%);
+  --tor-translateY: 0%;
+  --tor-translateX: 0%;
+}
+
+//
+// ------------------------------------------------------------------------
+// Inactive
+// ------------------------------------------------------------------------
+//
+
+
+[data-tor*=":reveal(up"] {
+  --tor-reveal-idle: inset(0% 0% 99.999% 0%);
+  --tor-translateY-idle: 100%;
+}
+[data-tor*=":reveal(down"] {
+  --tor-reveal-idle: inset(99.999% 0% 0% 0%);
+  --tor-translateY-idle: -100%;
+}
+[data-tor*=":reveal(right"] {
+  --tor-reveal-idle: inset(0% 0% 0% 99.999%);
+  --tor-translateX-idle: -100%;
+}
+[data-tor*=":reveal(left"] {
+  --tor-reveal-idle: inset(0% 99.999% 0% 0%);
+  --tor-translateX-idle: 100%;
+}
+
+// Hide
+
+[data-tor*=":reveal.hide(down"] {
+  --tor-reveal-idle: inset(0% 0% 100% 0%);
+  --tor-translateY-idle: 100%;
+}
+[data-tor*=":reveal.hide(up"] {
+  --tor-reveal-idle: inset(100% 0% 0% 0%);
+  --tor-translateY-idle: -100%;
+}
+[data-tor*=":reveal.hide(left"] {
+  --tor-reveal-idle: inset(0% 0% 0% 100%);
+  --tor-translateX-idle: -100%;
+}
+[data-tor*=":reveal.hide(right"] {
+  --tor-reveal-idle: inset(0% 100% 0% 0%);
+  --tor-translateX-idle: 100%;
+}

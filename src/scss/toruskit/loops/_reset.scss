@@ -1,0 +1,35 @@
+[data-tor*="loop:"],
+[data-tor-loop] {
+  --tor-loop-duration: 1000ms;
+  --tor-loop-timing: ease-in-out;
+  --tor-loop-direction: normal;
+  --tor-loop-speed: 1;
+
+  animation-iteration-count: infinite;
+
+  will-change: transform;
+
+  @-moz-document url-prefix() {
+    rotate: 0.02deg;
+    outline: 1px solid transparent;
+  }
+}
+
+[data-tor*=":move"] {
+  position: absolute;
+}
+
+[data-tor*="loop:bg"],
+[data-tor*="loop:sm::bg"],
+[data-tor*="loop:md::bg"],
+[data-tor*="loop:lg::bg"],
+[data-tor*="loop:xl::bg"],
+[data-tor*="loop:xxl::bg"] {
+  --tor-loop-bg-start: var(--tor-loop-bg-value-start, #{$primary});
+  --tor-loop-bg-end: var(--tor-loop-bg-value, #{$secondary});
+}
+
+[data-tor*=":fill"] {
+  --tor-loop-fill-start: var(--tor-loop-fill-value-start, #{$primary});
+  --tor-loop-fill-end: var(--tor-loop-fill-value, #{$secondary});
+}

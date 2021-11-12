@@ -1,0 +1,44 @@
+<section id="experience" class="py-5 py-lg-8 overflow-hidden {% if dark %}bg-dark bg-darken-sm{% else %}bg-light{% endif %}">
+  <div class="container py-4">
+    <div class="row row-cols-1 row-cols-md-2">
+
+      <!-- My education -->
+      <div class="col"
+        data-tor-group="
+          .experience-box .date         => inview:reveal(up) delay(/+50ms/);
+          .experience-box .description  => inview:[pull.left(md) fade.in] delay(/+50ms/) wait(100ms) slow;
+        "
+        >
+        <!-- Badge -->
+        <div class="title-badge d-inline-block mb-6 bg-primary text-primary bg-opacity-10 px-3 small">Qualification</div>
+        <!-- Title -->
+        <h2 class="ms-md-6 mb-5">My Education</h2>
+        {% for item in data.qualifications %}
+          {{ macros.experienceBox(date=item.date, title=item.title, subtitle=item.subtitle, small=item.small, description=item.description) }}
+        {% endfor %}
+      </div>
+      <!-- end .col -->
+
+      <!-- My education -->
+      <div class="col"
+        data-tor-group="
+          .experience-box .date         => inview:reveal(up) delay(/+50ms/);
+          .experience-box .description  => inview:[pull.left(md) fade.in] delay(/+50ms/) wait(100ms) slow;
+        "
+        >
+        <!-- Badge -->
+        <div class="title-badge d-inline-block mb-6 bg-primary text-primary bg-opacity-10 px-3 small">Experience</div>
+        <!-- Title -->
+        <h2 class="ms-6 mb-5">My Experience</h2>
+        {% for item in data.experiences %}
+          {{ macros.experienceBox(date=item.date, title=item.title, subtitle=item.subtitle, small=item.small, description=item.description, color=item.color) }}
+        {% endfor %}
+      </div>
+      <!-- end .col -->
+
+    </div>
+    <!-- end .row -->
+  </div>
+  <!-- end .container -->
+</section>
+<!-- end #experience -->

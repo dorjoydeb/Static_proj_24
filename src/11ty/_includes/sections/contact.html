@@ -1,0 +1,53 @@
+<section id="contact" class="py-5 py-md-8">
+  <div class="container py-4">
+    <div class="row row-cols-1 row-cols-md-2 center-v">
+
+      <div class="col">
+        <!-- Badge -->
+        <div class="title-badge d-inline-block mb-6 bg-primary text-primary bg-opacity-10 px-3 small">Contact me</div>
+        {{ macros.typewriter(tag="h2", class="mb-7", staticText="Let's talk together and calculate your project", typewriter="estimate") }}
+
+        <form class="w-md-80 form-clean inputs-transparent" data-tor-group=".form-control => !focus:[border(dark) bg(light)];">
+          <div class="mb-2">
+            <label for="contact-name" class="form-label opacity-70">Your name</label>
+            <input type="text" class="form-control p-3 border-bottom" id="contact-name" aria-describedby="contact-name">
+          </div>
+          <div class="mb-2">
+            <label for="contact-email" class="form-label opacity-70">Your email</label>
+            <input type="email" class="form-control p-3 border-bottom" id="contact-email" aria-describedby="contact-email">
+          </div>
+          <div class="mb-2">
+            <label for="contact-subject" class="form-label opacity-70">Subject</label>
+            <input type="email" class="form-control p-3 border-bottom" id="contact-subject" aria-describedby="contact-subject">
+          </div>
+          <div class="mb-2">
+            <label for="contact-message" class="form-label opacity-70">Message</label>
+            <textarea class="form-control p-3 border-bottom" id="contact-message" rows="2"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-arrow py-2 px-3 float-md-end w-100 w-md-auto">Submit</button>
+        </form>
+      </div>
+
+      <div class="col">
+        <div class="px-md-7 d-none d-md-block"
+          data-tor-group="
+            #vase-wfh-10_1_, #cupboard_1_ => inview:scale.from(0) originY(100%);
+            #female-wfh-10_1_       => inview:[pull.right(md) fade.in];
+            #computer-wfh-10_1_     => inview:[pull.left(md) fade.in] wait(300ms) click:class.toggle(active, {target: #illustration-contact});
+            #message-wfh-10_1_      => active(#illustration-contact):scale.to(0) hover:scale.to(85%) slow;
+            #message-head-wfh-10_1_ => active(#illustration-contact):scale.from(0) slow;
+            #message-wfh-10_1_ .illustration-loop     => loop:glow(3rem, {color: --bs-blue, duration: 3s});
+
+            .illustration-reveal    => delay(/+100ms/) slow;
+            .illustration-interaction => mouseX:@parallax(/+3/);
+          "
+        >
+          {% include "illustrations/contact.html" %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- end .container -->
+</section>
+<!-- end #work-process -->

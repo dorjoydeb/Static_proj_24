@@ -1,0 +1,155 @@
+.breadcrumb-item {
+  position: relative;
+  text-decoration: none;
+
+  > a {
+    display: inline-block;
+  }
+
+  > a:hover {
+    color: $breadcrumb-item-hover-color;
+    opacity: $breadcrumb-item-hover-opacity;
+  }
+
+  &:last-child {
+    > * {
+      opacity: $breadcrumb-active-opacity;
+    }
+    > a {
+      &:hover {
+        opacity: $breadcrumb-active-hover-opacity;
+      }
+    }
+  }
+
+  + .breadcrumb-item {
+    &:before {
+      align-self: center;
+      color: $breadcrumb-divider-color;
+    }
+  }
+}
+
+//
+// Custom divider
+//
+
+[data-divider] {
+  &:before {
+    content: attr(data-divider) !important;
+    opacity: .5;
+  }
+}
+
+.breadcrumb-home {
+  height: 100%;
+
+  &:before {
+    background-color: currentColor;
+    width: 0.6em;
+    height: 0.8em;
+    display: inline-block;
+    content: "";
+    mask-image: $breadcrumb-home-icon;
+    mask-repeat: no-repeat;
+    mask-position: center;
+  }
+}
+
+.breadcrumb-dividers-chevron {
+  .breadcrumb-item {
+    + .breadcrumb-item {
+      padding-left: .5rem;
+      display: flex;
+
+      &:before {
+        color: inherit;
+        mask-image: $breadcrumb-divider-chevron;
+        width: 0.6em;
+        margin-left: 0.2em;
+        margin-right: 0.6em;
+        height: 0.8em;
+        content: "";
+        display: inline-block;
+        background-color: currentColor;
+        mask-repeat: no-repeat;
+        mask-position: center;
+      }
+    }
+
+    &.active {
+      color: inherit;
+    }
+  }
+}
+
+.breadcrumb-dividers-bar {
+  .breadcrumb-item {
+    + .breadcrumb-item {
+      &:before {
+        border-left: 1px solid currentColor;
+        content: "";
+        height: 100%;
+        opacity: .15;
+      }
+    }
+  }
+}
+
+.breadcrumb-dividers-label {
+  .breadcrumb-item {
+    + .breadcrumb-item {
+      padding-left: 1rem;
+
+      &:before {
+        background-image: $breadcrumb-divider-label;
+        background-size: cover;
+        background-position: center;
+        content: "";
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        opacity: .8;
+
+        width: 100%;
+        background-repeat: no-repeat;
+        transform: translateX(calc( 0.25rem - 50% ));
+        pointer-events: none;
+      }
+    }
+  }
+}
+
+//
+// Dark breadcrumb background
+//
+
+.breadcrumb-dark {
+  .breadcrumb-item {
+    + .breadcrumb-item {
+      &:before {
+        color: $breadcrumb-dark-divider-color;
+      }
+    }
+
+    > a {
+      color: $breadcrumb-dark-item-color;
+
+      &:hover {
+        color: $breadcrumb-dark-item-hover-color;
+      }
+    }
+  }
+
+  &.breadcrumb-dividers-chevron {
+    .breadcrumb-item {
+      + .breadcrumb-item {
+        &:before {
+          content: $breadcrumb-dark-divider-chevron;
+        }
+      }
+    }
+  }
+}
+

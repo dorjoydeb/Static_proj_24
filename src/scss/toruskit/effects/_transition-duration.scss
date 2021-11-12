@@ -1,0 +1,11 @@
+@each $multiplier, $multiplier-value in $transition-duration-multiplier {
+  [data-tor~="#{$multiplier}"] {
+    --tor-speed: #{$multiplier-value};
+  }
+}
+
+[data-tor*="loop:"] {
+  @each $multiplier, $multiplier-value in $transition-duration-multiplier {
+    --tor-#{$multiplier}: #{$multiplier-value};
+  }
+}

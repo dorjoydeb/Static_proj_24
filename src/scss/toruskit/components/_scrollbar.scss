@@ -1,0 +1,102 @@
+.scrollbar {
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    width: $scrollbar-webkit-size;
+    height: $scrollbar-webkit-size;
+  }
+  &::-webkit-scrollbar-track,
+  &::-webkit-scrollbar-thumb {
+    border-radius: $scrollbar-webkit-border-radius;
+  }
+  &::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+}
+
+//
+// ------------------------------------------------------------------------
+// Scrollbar variants
+// ------------------------------------------------------------------------
+//
+
+//
+// White
+//
+
+.scrollbar-white:not(.auto-hide) {
+  scrollbar-color: $scrollbar-white-color $scrollbar-white-track-color;
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $scrollbar-white-color;
+  }
+}
+
+.scrollbar-white {
+  scrollbar-color: transparent $scrollbar-white-track-color;
+
+  &:hover {
+    scrollbar-color: $scrollbar-white-hover-color $scrollbar-white-track-color;
+
+        &::-webkit-scrollbar-thumb {
+            background-color: $scrollbar-white-hover-color;
+    }
+    &::-webkit-scrollbar-track {
+      background-color: $scrollbar-white-track-color;
+    }
+    }
+}
+
+//
+// Light
+//
+
+.scrollbar-light:not(.auto-hide) {
+  scrollbar-color: $scrollbar-light-color $scrollbar-light-track-color;
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $scrollbar-light-color;
+  }
+}
+
+.scrollbar-light {
+  scrollbar-color: $scrollbar-light-track-color $scrollbar-light-track-color;
+
+  &:hover {
+    scrollbar-color: $scrollbar-light-hover-color $scrollbar-light-track-color;
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $scrollbar-light-hover-color;
+    }
+    &::-webkit-scrollbar-track {
+      background-color: $scrollbar-light-track-color;
+    }
+  }
+}
+
+//
+// Dark
+//
+
+.scrollbar-dark:not(.auto-hide) {
+  scrollbar-color: $scrollbar-dark-color $scrollbar-dark-track-color;
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $scrollbar-dark-color;
+  }
+}
+
+.scrollbar-dark {
+  scrollbar-color: $scrollbar-dark-track-color $scrollbar-dark-track-color;
+
+  &:hover {
+    scrollbar-color: $scrollbar-dark-hover-color $scrollbar-dark-track-color;
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $scrollbar-dark-hover-color;
+    }
+    &::-webkit-scrollbar-track {
+      background-color: $scrollbar-dark-track-color;
+    }
+  }
+}

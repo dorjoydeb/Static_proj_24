@@ -1,0 +1,36 @@
+[data-tor~="quad"] {
+  transition-duration: #{$transition-duration-quad} !important;
+  transition-timing-function: #{$transition-timing-quad} !important;
+  // --tor-duration: #{$transition-duration-quad} !important;
+  // --tor-timing: #{$transition-timing-quad} !important;
+}
+[data-tor~="exponential"] {
+  transition-duration: #{$transition-duration-exponential} !important;
+  transition-timing-function: #{$transition-timing-exponential} !important;
+  // --tor-duration: #{$transition-duration-exponential} !important;
+  // --tor-timing: #{$transition-timing-exponential} !important;
+}
+[data-tor~="bounce"] {
+  transition-duration: #{$transition-duration-bounce} !important;
+  transition-timing-function: #{$transition-timing-bounce} !important;
+  // --tor-duration: #{$transition-duration-bounce} !important;
+  // --tor-timing: #{$transition-timing-bounce} !important;
+}
+[data-tor~="bounce-exponential"] {
+  transition-duration: #{$transition-duration-exponential} !important;
+  transition-timing-function: #{$transition-timing-bounce-exponential} !important;
+  // --tor-duration: #{$transition-duration-exponential} !important;
+  // --tor-timing: #{$transition-timing-bounce-exponential} !important;
+}
+[data-tor~="linear"] {
+  transition-duration: #{$transition-duration} !important;
+  transition-timing-function: #{$transition-timing-linear} !important;
+  // --tor-duration: #{$transition-duration} !important;
+  // --tor-timing: #{$transition-timing-linear} !important;
+}
+[data-tor~="ease-out"] {
+  transition-duration: #{$transition-duration-ease-out} !important;
+  transition-timing-function: #{$transition-timing-ease-out} !important;
+  // --tor-duration: #{$transition-duration-ease-out} !important;
+  // --tor-timing: #{$transition-timing-ease-out} !important;
+}

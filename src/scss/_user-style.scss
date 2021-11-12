@@ -1,0 +1,738 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+/**
+ * ------------------------------------------------------------------------
+ * Typography
+ * ------------------------------------------------------------------------
+ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4
+.h5,
+.h6 {
+  color: #1D2043;
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+}
+
+h1,
+.h1 {
+  font-size: fluid-size(4.5rem);
+}
+
+h2,
+.h2 {
+  font-size: fluid-size(2.25rem);
+}
+
+h3,
+.h3 {
+  font-size: fluid-size(1.5rem);
+}
+
+h4,
+.h4 {
+  font-size: fluid-size(1.25rem);
+}
+
+h5,
+.h5 {
+  font-size: fluid-size(1.125rem);
+}
+
+p {
+  font-weight: 300;
+}
+
+a {
+  text-decoration: none;
+}
+
+.theme-dark {
+  color: rgba(#fff, 0.6);
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .h1,
+  .h2,
+  .h3,
+  .h4
+  .h5,
+  .h6 {
+    color: #fff;
+  }
+
+  .title-badge {
+    &::before {
+    border-top-color: #fff;
+    }
+  }
+}
+
+/**
+ * ------------------------------------------------------------------------
+ * Utility classes
+ * ------------------------------------------------------------------------
+ */
+
+.font-serif {
+  font-family: 'Playfair Display', serif !important;
+}
+
+.font-sans-serif {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 400;
+}
+
+.fw-500 {
+  font-weight: 500;
+}
+
+.portfolio-item {
+  border-width: 1.5rem !important;
+  border-radius: 3rem;
+}
+
+/**
+ * ------------------------------------------------------------------------
+ * Styling
+ * ------------------------------------------------------------------------
+ */
+
+.title-badge {
+  position: relative;
+  margin-left: 3rem;
+
+  &::before {
+    content: "";
+    border-top: 1px solid black;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -3rem;
+    width: 2rem;
+    bottom: 0;
+    margin: auto;
+    height: 1px;
+  }
+}
+
+/**
+ * ------------------------------------------------------------------------
+ * SVG illustrations
+ * ------------------------------------------------------------------------
+ */
+
+/**
+* ------------------------------------------------------------------------
+* Hero
+* ------------------------------------------------------------------------
+*/
+
+#illustration-hero {
+  .st1 {
+    fill: #a15842
+  }
+
+  .st2 {
+    fill: #30242a
+  }
+
+  .st3 {
+    fill: #ffcfc9
+  }
+
+  .st5 {
+    fill: none;
+    stroke: #a15842;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-miterlimit: 10
+  }
+
+  .st6 {
+    fill: #f5ebdd
+  }
+
+  .st7 {
+    fill: none;
+    stroke: #30242a;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-miterlimit: 10
+  }
+
+  .st8 {
+    fill: #a03c8b
+  }
+
+  .st9 {
+    fill: #454988
+  }
+
+  .st10 {
+    fill: #ffb7d5
+  }
+
+  .st11 {
+    fill: #ffbe21
+  }
+
+  .st12 {
+    fill: none;
+    stroke: #a15842;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round
+  }
+
+  .st13 {
+    fill: #ff7235
+  }
+
+  .st14 {
+    fill: none;
+    stroke: #2f335b;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-miterlimit: 10
+  }
+
+  .st15 {
+    fill: #7394dd
+  }
+
+  .st16,
+  .st18 {
+    fill: none;
+    stroke-width: 4
+  }
+
+  .st16 {
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: #30242a
+  }
+
+  .st18 {
+    stroke: #a15842;
+    stroke-miterlimit: 10
+  }
+
+  .st19 {
+    fill: #3ec1f3
+  }
+
+  .st20 {
+    fill: #4756df
+  }
+
+  .st22 {
+    fill: none;
+    stroke: #4756df;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-miterlimit: 10
+  }
+
+  .st24 {
+    fill: #eaa58b
+  }
+
+  .st28 {
+    fill: none;
+    stroke: #30242a;
+    stroke-width: 2;
+    stroke-miterlimit: 10
+  }
+}
+
+/**
+ * ------------------------------------------------------------------------
+ * Services
+ * ------------------------------------------------------------------------
+ */
+
+#illustration-services {
+  .st0 {
+    fill: #ececec
+  }
+
+  .st1 {
+    fill: #fff
+  }
+
+  .st2 {
+    fill: #a15842
+  }
+
+  .st3 {
+    fill: none;
+    stroke: #a15842;
+    stroke-width: 4;
+    stroke-miterlimit: 10
+  }
+
+  .st4 {
+    fill: #ffbe21
+  }
+
+  .st5 {
+    fill: none;
+    stroke: #f5ebdd;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-miterlimit: 10
+  }
+
+  .st6 {
+    fill: #ff7235
+  }
+
+  .st7 {
+    fill: #30242a
+  }
+
+  .st8 {
+    fill: #ffb7d5
+  }
+
+  .st9 {
+    fill: none;
+    stroke: #a15842;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-miterlimit: 10
+  }
+
+  .st10 {
+    fill: #eaa58b
+  }
+
+  .st11 {
+    fill: #3ec1f3
+  }
+
+  .st13 {
+    stroke: #4756df;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-miterlimit: 10
+  }
+
+  .st13,
+  .st14,
+  .st15 {
+    fill: none
+  }
+
+  .st15 {
+    stroke: #30242a;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-miterlimit: 10
+  }
+
+  .st16 {
+    fill: #4856df
+  }
+
+  .st17,
+  .st19 {
+    fill: none;
+    stroke-width: 4;
+    stroke-linecap: round
+  }
+
+  .st17 {
+    stroke-miterlimit: 10;
+    stroke: #4856df
+  }
+
+  .st19 {
+    stroke: #000;
+    stroke-linejoin: round
+  }
+
+  .st20 {
+    fill: #4756df
+  }
+
+  .st21 {
+    fill: #a15842
+  }
+
+  .st22 {
+    fill: #eca489
+  }
+
+  .st23 {
+    fill: #1d275c;
+  }
+}
+
+/**
+ * ------------------------------------------------------------------------
+ * Skills
+ * ------------------------------------------------------------------------
+ */
+
+#illustration-skills {
+  .st0 {
+    fill: #ffb7d5
+  }
+
+  .st1 {
+    fill: #ca7358
+  }
+
+  .st2 {
+    fill: none;
+    stroke: #ffb7d5;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round
+  }
+
+  .st3 {
+    fill: #f5ebdd
+  }
+
+  .st4 {
+    fill: #30242a
+  }
+
+  .st5 {
+    fill: #ffbe21
+  }
+
+  .st6 {
+    fill: #9b5342
+  }
+
+  .st7 {
+    fill: none;
+    stroke: #30242a;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round
+  }
+
+  .st11 {
+    fill: #4856df
+  }
+
+  .st12 {
+    fill: #3ec1f3
+  }
+
+  .st13 {
+    fill: #e2987c
+  }
+
+  .st14 {
+    fill: #4756df
+  }
+
+  .st18 {
+    stroke: #000;
+    stroke-miterlimit: 10
+  }
+
+  .st18,
+  .st20,
+  .st21 {
+    fill: none;
+    stroke-width: 4;
+    stroke-linecap: round
+  }
+
+  .st20 {
+    stroke-linejoin: round;
+    stroke: #f5ebdd
+  }
+
+  .st21 {
+    stroke: #30242a;
+    stroke-miterlimit: 10
+  }
+}
+
+/**
+ * ------------------------------------------------------------------------
+ * Testimonials
+ * ------------------------------------------------------------------------
+ */
+
+#illustration-testimonials {
+  .st0 {
+    fill: #fff
+  }
+
+  .st3 {
+    fill: #eaa58b
+  }
+
+  .st4 {
+    fill: #ffbe21
+  }
+
+  .st5 {
+    fill: none;
+    stroke: #bb7259;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-miterlimit: 10
+  }
+
+  .st6 {
+    fill: #ca7358
+  }
+
+  .st7 {
+    fill: none;
+    stroke: #30242a;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-miterlimit: 10
+  }
+
+  .st8 {
+    fill: #ff7235
+  }
+
+  .st10 {
+    fill: #30242a
+  }
+
+  .st12,
+  .st13 {
+    fill: none;
+    stroke: #000;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round
+  }
+
+  .st13 {
+    stroke: #724342
+  }
+
+  .st15 {
+    fill: #724342
+  }
+
+  .st18,
+  .st19,
+  .st21 {
+    fill: none;
+    stroke: #375c7a;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-miterlimit: 10
+  }
+
+  .st19,
+  .st21 {
+    stroke: #ffbe21
+  }
+
+  .st21 {
+    stroke: #fff
+  }
+}
+
+/**
+ * ------------------------------------------------------------------------
+ * Contact
+ * ------------------------------------------------------------------------
+ */
+
+#illustration-contact {
+  .st0 {
+    fill: #f5ebdd
+  }
+
+  .st1 {
+    fill: #ffb7d5
+  }
+
+  .st2 {
+    fill: #3ec1f3
+  }
+
+  .st3 {
+    fill: #4756df
+  }
+
+  .st5 {
+    fill: #30242a
+  }
+
+  .st6 {
+    fill: none;
+    stroke: #bb7259;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-miterlimit: 10
+  }
+
+  .st8 {
+    fill: #724342
+  }
+
+  .st10 {
+    fill: none;
+    stroke: #30242a;
+    stroke-width: 4;
+    stroke-miterlimit: 10
+  }
+
+  .st11 {
+    fill: #a15842
+  }
+
+  .st14 {
+    fill: #ba8063
+  }
+
+  .st15 {
+    fill: #ff7235
+  }
+
+  .st16 {
+    fill: none;
+    stroke: #30242a;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round
+  }
+
+  .st17 {
+    fill: #ffbe21
+  }
+
+  .st18 {
+    stroke: #ca7358;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round
+  }
+
+  .st18,
+  .st19 {
+    fill: none
+  }
+
+  .st21,
+  .st22,
+  .st23 {
+    fill: none;
+    stroke-width: 4;
+    stroke-linecap: round
+  }
+
+  .st21 {
+    stroke-linejoin: round;
+    stroke: #a15842
+  }
+
+  .st22,
+  .st23 {
+    stroke: #f5ebdd
+  }
+
+  .st22 {
+    stroke-linejoin: round
+  }
+
+  .st23 {
+    stroke-miterlimit: 10
+  }
+}
+
+/**
+ * ------------------------------------------------------------------------
+ * Footer
+ * ------------------------------------------------------------------------
+ */
+
+#illustration-footer {
+  .st0 {
+    fill: none;
+    stroke: #6562cf;
+    stroke-width: 6;
+    stroke-miterlimit: 10
+  }
+
+  .st2 {
+    fill: #ffcfc9
+  }
+
+  .st3 {
+    fill: #3f4d79
+  }
+
+  .st4 {
+    fill: #ffcfc9
+  }
+
+  .st6 {
+    fill: #fff
+  }
+
+  .st8 {
+    fill: none;
+    stroke: #000;
+    stroke-miterlimit: 10
+  }
+}
+
+/**
+ * ------------------------------------------------------------------------
+ * Tools
+ * ------------------------------------------------------------------------
+ */
+
+#illustration-tools {
+  .st0 {
+      fill: #fff
+    }
+
+    .st3 {
+      fill: #ff2bc2
+    }
+
+    .st4,
+    .st5,
+    .st6 {
+      fill-rule: evenodd;
+      clip-rule: evenodd;
+      fill: #ea6c00
+    }
+
+    .st5,
+    .st6 {
+      fill: #fdad00
+    }
+
+    .st6 {
+      fill: #fdd231
+    }
+}
